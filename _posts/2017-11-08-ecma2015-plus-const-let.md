@@ -210,7 +210,7 @@ let foo = console.log(foo); // 할당 연산의 경우는 항상 오른 쪽부�
 
 ---
 - 출처 :
-  1. [https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html)
+  1. [http://exploringjs.com/es6/ch_variables.html](http://exploringjs.com/es6/ch_variables.html)
   2. [https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/const](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/const)
   3. [https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/let](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/let)
   4. [https://hyunseob.github.io/2016/11/21/misunderstanding-about-const/](https://hyunseob.github.io/2016/11/21/misunderstanding-about-const/)
