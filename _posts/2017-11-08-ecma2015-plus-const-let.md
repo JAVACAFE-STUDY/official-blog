@@ -11,7 +11,7 @@ thumbnail: http://exploringjs.com/es6/ch_variables.html
 
 * 작성자 : 서동우
 
-# emcascropt 2015+ - 첫 번째 시간 const, let
+# emcascript 2015+ - 첫 번째 시간 const, let
 
 ecmascript 2015(줄여서 es2015) 에서 변수를 선언할 때 두 가지의 키워드인 
 `const`와 `let`이 추가되었습니다. 그럼 기존에 있던 `var`와 이 두개는 어떤 차이가 있을까요? 그리고 왜 이렇게 두 개의 키워드가 생겨 났을까요? 이 부분에 대해서 한번 생각해보도록 하겠습니다.
