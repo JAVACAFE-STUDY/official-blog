@@ -1,6 +1,6 @@
 ---
 title: 'ECMASCRIPT 2015+ - 첫 번째 시간 const, let'
-date: 2017-11-06 21:20:00
+date: 2017-11-08 12:00:00
 categories:
 - javascript
 tags:
@@ -210,7 +210,7 @@ let foo = console.log(foo); // 할당 연산의 경우는 항상 오른 쪽부�
 
 ---
 - 출처 :
-  1. https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html
-  2. https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/const
-  3. https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/let
-  4. https://hyunseob.github.io/2016/11/21/misunderstanding-about-const/
+  1. [https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html)
+  2. [https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/const](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/const)
+  3. [https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/let]https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/let
+  4. [https://hyunseob.github.io/2016/11/21/misunderstanding-about-const/](https://hyunseob.github.io/2016/11/21/misunderstanding-about-const/)
