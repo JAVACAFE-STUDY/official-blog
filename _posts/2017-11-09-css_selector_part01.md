@@ -74,6 +74,6 @@ $$('.cls > :nth-last-child(1) li:nth-of-type(3)');  // 조건을 만족하는 �
 이제 도구가 준비 되었으니 다음에는 selector의 구체적인 용법들에 대해서 알아보겠습니다 :) 
 
 ### Note that
-아래 링크에서 document.querySelector*의 지원현황과 bind 메서드의 지원현황을 확인 후 사용하세요
+실무에서 사용하실 경우에는 아래 링크에서 document.querySelector*의 지원현황과 bind 메서드의 지원현황을 확인 후 사용하세요
 - <a href="https://developer.mozilla.org/ko/docs/Web/API/Document/querySelector#Browser_Compatibility">document.querySelector() 브라우저 호환성</a>
 - <a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Function/bind#Browser_Compatibility">Function.prototype.bind() 브라우저 호환</a>
