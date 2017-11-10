@@ -60,11 +60,11 @@ var $ = $ || document.querySelector.bind(document);
 이때 중요한 점은 document.querySelctor을 그냥 할당하지 않고 bind로 this를 고정시켜 준 점입니다.<br>
 
 Javascript의 this는 다소 복잡합니다 (나중에 기회가 되면 다루겠습니다)
-document.querySelctor 메서드 내부에서 사용되는 this는 document.querySelctor()로 호출할 경우 document가 되지만, 해당 메서드를 다른 변수에 할당하고 그 변수를 다른 곳에서 (예 전역인 window) 호출할 경우 this의 값이 (window로) 달라지게 됩니다!! ~~왔더?!!!~~<br>
+document.querySelctor 메서드 내부에서 사용되는 this는 document.querySelctor()로 호출할 경우 document가 되지만, 해당 메서드를 다른 변수에 할당하고 그 변수를 다른 곳에서 (예 전역인 window) 호출할 경우 this의 값이 (window로) 달라지게 됩니다!! ~~왓더!!!~~<br>
 그래서 'bind(document)'를 해주지 않고 그냥 'var $ = document.querySelector;'라고 할당하고 호출해보면 에러가 발생하게 됩니다.<br>
 이런 에러를 피하기 위해 'bind(document)'를 추가해줘서 this를 명시적으로 document로 고정시켜줍니다.
 
-이제 완성되었습니다~ \\ ^~^ /
+이제 완성되었습니다~^~^
 ```javascript
 $$('.cls > :nth-last-child(1) li');  // 조건을 만족하는 모든 element select
 $('.cls > :nth-last-child(1) li:nth-of-type(3)');   // 조건을 만족하는 첫 번째 element만 select
