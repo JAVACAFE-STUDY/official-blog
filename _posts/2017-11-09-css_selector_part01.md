@@ -14,11 +14,11 @@ thumbnail: https://www.w3.org/TR/css3-selectors/
 이번에는 웹프로그래밍에서 빼놓을 수 없는 CSS selector에 대해서 알아보겠습니다.
 첫 시간이니만큼 가벼운 내용으로 시작해서 점차 심화해 가도록 하겠습니다
 
-## 연장부터 챙기자
+# 연장부터 챙기자
 브라우져에서 Selector를 쓰려면 먼저 Selector를 실행시킬 도구가 필요합니다.<br>
 몇 가지 Selector에 사용되는 유명한 도구들을 시대 흐름순으로 가볍게 훑어 보면서 현시점에서 '어떤' 도구를 '어떻게' 사용하는게 좋을지부터 생각해 보겠습니다.
 
-### document.getElement*()
+## document.getElement*()
 ```javascript
 document.getElementById('아이디')
 document.getElementsByClassName('클래스')
@@ -29,7 +29,7 @@ document.getElementsByTagNameNS('Namespace', 'Tag name')
 한 때는 DOM에서 제공하는 위에 기술한 정도의 매우 단순하고 제한적인 메서드밖에 없었습니다.<br> 
 위의 메서드만 있다면 '선택된 element의 자손들 중 마지막 (직계)자식의 자손의 3번째 li'와 같은 복잡한 조회 작업이 정말 막막하겠죠
 
-### Sizzle 
+## Sizzle
 ```javascript
 $('.cls > :nth-last-child(1) li:nth-of-type(3)')
 ```
@@ -37,7 +37,7 @@ $('.cls > :nth-last-child(1) li:nth-of-type(3)')
 Sizzle은 jQuery에 탑재되어 jQuery의 인기에 큰 역할을 담당하게 됩니다. <br>
 '선택된 element의 자손들 중 마지막 (직계)자식의 자손의 3번째 li'같은 복잡한 조회가 위의 한 줄로 가능해집니다.
   
-### document.querySelector[All]
+## document.querySelector[All]
 ```javascript
 document.querySelector('.cls > :nth-last-child(1) li:nth-of-type(3)')
 document.querySelectorAll('.cls > :nth-last-child(1) li')
@@ -46,7 +46,7 @@ jQuery의 Sizzle은 매우 강력했지만 이런 라이브러리를 사용하�
 이 때 Selector API 1에서 복잡한 CSS Selector를 한 번에 처리가 가능한 document.querySelector와 document.querySelectorAll이 소개됩니다.<br>
 위의 코드처럼 Sizzle과 마찬가지로 복잡한 CSS selector 조합을 처리할 수 있는 기능을 제공하죠.<br>
 
-## 개선해보기
+# 개선해보기
 document.querySelector[All]가 등장하면서 Selector를 위해 특정 라이브러리를 import하는 일은 피할 수 있게 되었습니다.<br>
 하지만 여전히 불편한 점은 남아 있습니다. 그건 바로 메서드의 이름이 너무 길다는거죠.<br>
 '$'에 길들여진 많은 개발자들에게 메서드 이름 치다가 죽을 것 같은 'document.querySelectorAll'이라는 메서드명은 너무 가혹합니다...
@@ -73,7 +73,7 @@ $('.cls > :nth-last-child(1) li:nth-of-type(3)');   // 조건을 만족하는 �
 
 도구가 준비 되었으니 다음 시간에는 selector의 구체적인 용법들에 대해서 알아보겠습니다 :)
 
-### Note that
+# Note that
 실무에서 사용하실 경우에는 아래 링크에서 document.querySelector[All]의 지원현황과 bind 메서드의 지원현황을 확인 후에 사용하세요
 - <a href="https://developer.mozilla.org/en/docs/Web/API/Document/querySelector#Browser_Compatibility">document.querySelector() 브라우저 호환성</a>
 - <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Function/bind#Browser_Compatibility">Function.prototype.bind() 브라우저 호환</a>
