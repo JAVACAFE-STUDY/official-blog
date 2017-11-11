@@ -7,9 +7,8 @@ tags:
 - css
 - selector
 thumbnail: https://www.w3.org/TR/css3-selectors/
+author : 작성자
 ---
-
-* 작성자 : 이영범
 
 이번에는 웹프로그래밍에서 빼놓을 수 없는 CSS selector에 대해서 알아보겠습니다.
 첫 시간이니만큼 가벼운 내용으로 시작해서 점차 심화해 가도록 하겠습니다

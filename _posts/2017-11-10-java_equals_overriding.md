@@ -2,10 +2,7 @@
 title: 'equals overriding 살펴보기!'
 date: 2017-11-10 12:00:00
 categories:
-- css
-tags:
-- css
-- selector
+author : 유현석
 ---
 
 * 작성자 : 유현석

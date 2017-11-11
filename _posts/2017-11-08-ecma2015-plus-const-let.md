@@ -7,9 +7,9 @@ tags:
 - javascript
 - ecmascript2015
 thumbnail: http://exploringjs.com/es6/ch_variables.html
+author : 서동우
 ---
 
-* 작성자 : 서동우
 
 # emcascript 2015+ - 첫 번째 시간 const, let
 

@@ -7,9 +7,8 @@ tags:
 - TypeScript
 - Getting Started
 thumbnail: https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html
+author : 이기승
 ---
-
-* 작성자 : 이기승
 
 ### 설치
 - [node.js](https://nodejs.org) 설치

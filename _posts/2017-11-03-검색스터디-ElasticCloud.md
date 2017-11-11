@@ -8,9 +8,8 @@ tags:
 - 2017_상반기_스터디
 - ElasticSearch
 thumbnail: https://github.com/hrkim3468
+author : 김흥래
 ---
-
-* 작성자 : 김흥래
 
 
 ### Elastic Cloud
