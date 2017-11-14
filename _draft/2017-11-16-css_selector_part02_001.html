@@ -4,17 +4,46 @@
 	<meta charset="UTF-8">
 	<title>CSS Selector Quiz.</title>
 	<style>
-
+		body {
+			margin: 0px;
+		}
+		div.card {
+			float: left;
+			width: 50%;
+			outline: 1px solid black;
+		}
+		.code div {
+			margin: 10px 30px 10px 10px;
+			outline: 1px solid black;
+		}
 	</style>
 </head>
 <body>
 	<div id="container">
-		<div id="codeArea">
+		<div class="card code">
+			<div>
+				&lt;div id="" class=""&gt;
+				<div>
+					&lt;div id="" class=""&gt;&lt;/div&gt;
+				</div>
+				<div>
+					&lt;div id="" class=""&gt;
+					<div>
+						&lt;div id="" class=""&gt;&lt;/div&gt;
+					</div>
+					&lt;/div&gt;
+				</div>
+				&lt;/div&gt;
+			</div>
 			<!-- TODO 코드 구조대로 div 영역 보여주기 -->
 		</div>
-		<div id="quizArea">
+		<div class="card quiz">
 			<!-- TODO  문제에 focusing 되면 코드 영역 강조표시-->
+			test2
 		</div>
 	</div>
+	<script>
+		// TODO : 크롬과 같은 selector 만들어보기
+	</script>
 </body>
 </html>
