@@ -22,7 +22,7 @@
 		div.card {
 			float: left;
 			width: 50%;
-			height: 670px
+			height: 660px
 		}
 		.code, .code div {
 			margin: 10px 10px 10px 20px;
@@ -69,10 +69,11 @@
 			font-weight: bold
 		}
 		.hidden {
-			/*visibility: hidden;*/
+			visibility: hidden;
 		}
 		.btn-area-parent {
 			text-align: center;
+			margin-top:	10px;
 		}
 		.btn-area {
 			display: inline
@@ -102,31 +103,35 @@
 		.score-point {
 			font-weight: bolder;
 		}
-
+		.wrong {
+			color: red
+		}
 	</style>
 </head>
 <body>
 <h1 align="center">Selector 테스트 - 기초</h2>
 <div class="container">
 	<div class="cards">
-		<div class="card selector-root">
-			<div class="code">
-				&lt;div class="code">
-				<div class="a" data-x="pre1-x-1suf" id="id1">&lt;div class="a" data-x="pre1-x-1suf" id="id1">&lt;/div></div>
-				<div class="a b" data-x="pre2-x-2suf">&lt;div class="a b" data-x="pre2-x-2suf">&lt;/div></div>
-				<div class="a b c" data-x="pre3-x-3suf" id="id2">&lt;div class="a b c" data-x="pre3-x-3suf" id="id2">&lt;/div></div>
-				<div id="container1">
-					&lt;div id="container1">
-					<div class="b" data-x="x-suf">&lt;div class="b" data-x="x-suf">&lt;/div></div>
-					<div class="b c" data-x="pre-x xx">&lt;div class="b c" data-x="pre-x xx">&lt;/div></div>
+		<div class="card">
+			<div class="selector-root">
+				<div class="code">
+					&lt;div class="code">
+					<div class="a" data-x="pre1-x-1suf" id="id1">&lt;div class="a" data-x="pre1-x-1suf" id="id1">&lt;/div></div>
+					<div class="a b" data-x="pre2-x-2suf">&lt;div class="a b" data-x="pre2-x-2suf">&lt;/div></div>
+					<div class="a b c" data-x="pre3-x-3suf" id="id2">&lt;div class="a b c" data-x="pre3-x-3suf" id="id2">&lt;/div></div>
+					<div id="container1">
+						&lt;div id="container1">
+						<div class="b" data-x="x-suf">&lt;div class="b" data-x="x-suf">&lt;/div></div>
+						<div class="b c" data-x="pre-x xx">&lt;div class="b c" data-x="pre-x xx">&lt;/div></div>
+						&lt;/div>
+					</div>
+					<div id="container2">
+						&lt;div id="container2">
+						<div class="c" data-x="x xx">&lt;div class="c" data-x="x xx">&lt;/div></div>
+						&lt;/div>
+					</div>
 					&lt;/div>
 				</div>
-				<div id="container2">
-					&lt;div id="container2">
-					<div class="c" data-x="x xx">&lt;div class="c" data-x="x xx">&lt;/div></div>
-					&lt;/div>
-				</div>
-				&lt;/div>
 			</div>
 			<div class="score-board">
 				<h3>정답율 : <span id="score" class="score-point">0</span>%</h3>
@@ -193,22 +198,62 @@
 	</div>
 	<div class="btn-area-parent">
 		<div class="btn-area">
-			<input type="button" class="btn btn-primary" value="정답제출"/>
-			<input type="button" class="btn btn-danger" value="정답확인"/>
+			<input id="submit" type="button" class="btn btn-primary" value="정답제출"/>
+			<input id="checkAnswers" type="button" class="btn btn-danger" value="정답확인"/>
 		</div>
 	</div>
 </div>
 <script>
-	function addClass(selector, className) {
-		[].forEach.call(document.querySelectorAll('.selector-root *'), (ele) => { ele.classList.remove(className); });
+	const $$ = document.querySelectorAll.bind(document);
+	const $ = document.querySelector.bind(document);
+
+	function addClass(selector, className, root) {
+	    const defaultSelector = ((root||'') + ' ' + selector).trim(),
+			target = $$(defaultSelector),
+			pastTarget = $$(root + ' *');
+		[].forEach.call(pastTarget, (ele) => { ele.classList.remove(className); });
 		try {	// 불필요한 exception bypass
-			if(document.querySelectorAll(selector)) {
-				[].forEach.call(document.querySelectorAll('.selector-root ' + selector), (ele) => { ele.classList.add(className); });
+			if(defaultSelector!==root && target) {
+				[].forEach.call(target, (ele) => { ele.classList.add(className); });
 			}
 		} catch(e) {};
 	}
+	function submit () {
+	    const ansBoxes = $$('.quiz-answer'),
+			answerCount = ansBoxes.length;
+	    let rightAnswerCount = answerCount;
+        [].forEach.call(ansBoxes, (ele)=>{
+            const answerArea = [].filter.call(ele.children, (ele)=>{
+					return ele.classList.contains('answer-area');
+				})[0].children[0],
+				answer = answerArea.value,
+                rightAnswerArea = [].filter.call(ele.children, (ele)=>{
+                    return ele.classList.contains('answer-check');
+                })[0],
+                rightAnswer = rightAnswerArea.innerHTML
+				;
+			if(answer!==rightAnswer) {
+                rightAnswerArea.classList.add('wrong');
+                rightAnswerCount--;
+			} else {
+                rightAnswerArea.classList.remove('wrong');
+			}
+        });
+        $('#score').innerHTML = parseInt((rightAnswerCount / answerCount) * 100);
+        alert('채점이 끝났습니다');
+    }
+	function checkAnswers () {
+	    const answerChecks= $$('.quiz-answer .answer-check');
+		[].forEach.call(answerChecks, (ele) => {
+            ele.classList.remove('hidden');
+		});
+	}
 	// TODO : 크롬과 같은 selector 만들어보기
-	document.getElementById('selector-test').addEventListener('keyup', (eve)=>{	addClass(eve.currentTarget.value, 'highlight'); });
+    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>> add eventListeners >>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+    document.getElementById('selector-test').addEventListener('keyup', (eve)=>{	addClass(eve.currentTarget.value, 'highlight', '.selector-root'); });
+    document.getElementById('submit').addEventListener('click', submit);
+    document.getElementById('checkAnswers').addEventListener('click', checkAnswers);
+	/*<<<<<<<<<<<<<<<<<<<<<<<<<<<< add eventListeners <<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 </script>
 </body>
 </html>
