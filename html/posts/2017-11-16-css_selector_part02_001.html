@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Selector 테스트 - 기초</title>
+	<style>
+		body {
+			/*margin: 0;*/
+			min-width: 800px
+		}
+		input {
+			font-size: 15px
+		}
+		.container {
+			min-width: 900px
+		}
+		div.cards:after {
+			content: "";
+			clear: both;
+			display: block
+		}
+		div.card {
+			float: left;
+			width: 50%;
+			height: 670px
+		}
+		.code, .code div {
+			margin: 10px 10px 10px 20px;
+			padding: 10px 5px;
+			outline: 2px dashed #bbbbbb
+		}
+		.code {
+			margin: 10px
+		}
+		.quiz {
+			padding: 0 10px;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			overflow: auto
+		}
+		.answer-area input {
+			width: 90%
+		}
+		.quiz > div {
+			margin-bottom: 15px
+		}
+		.quiz .selector-check {
+			/*margin-bottom: 20px;*/
+			position: fixed;
+			width: 40%;
+			min-width: 384px;
+			padding: 15px;
+			background-color: #cccccc;
+		}
+		#selector-test {
+			width: 70%
+		}
+		.highlight {
+			outline: 3px dashed orange !important
+		}
+		.quiz-answer div {
+			padding: 2px
+		}
+		.quiz .quiz-list {
+			margin-top: 70px
+		}
+		.answer-check {
+			font-weight: bold
+		}
+		.hidden {
+			/*visibility: hidden;*/
+		}
+		.btn-area-parent {
+			text-align: center;
+		}
+		.btn-area {
+			display: inline
+		}
+		.btn {
+			border: none;
+			color: white;
+			padding: 10px 20px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			margin: 4px 2px;
+			cursor: pointer;
+			border-radius: .25rem
+		}
+		.btn-primary {
+			background-color: #0A74FF;
+		}
+		.btn-danger {
+			background-color: #DA2846;
+		}
+		.score-board {
+			float: right;
+			padding: 10px;
+		}
+		.score-point {
+			font-weight: bolder;
+		}
+
+	</style>
+</head>
+<body>
+<h1 align="center">Selector 테스트 - 기초</h2>
+<div class="container">
+	<div class="cards">
+		<div class="card selector-root">
+			<div class="code">
+				&lt;div class="code">
+				<div class="a" data-x="pre1-x-1suf" id="id1">&lt;div class="a" data-x="pre1-x-1suf" id="id1">&lt;/div></div>
+				<div class="a b" data-x="pre2-x-2suf">&lt;div class="a b" data-x="pre2-x-2suf">&lt;/div></div>
+				<div class="a b c" data-x="pre3-x-3suf" id="id2">&lt;div class="a b c" data-x="pre3-x-3suf" id="id2">&lt;/div></div>
+				<div id="container1">
+					&lt;div id="container1">
+					<div class="b" data-x="x-suf">&lt;div class="b" data-x="x-suf">&lt;/div></div>
+					<div class="b c" data-x="pre-x xx">&lt;div class="b c" data-x="pre-x xx">&lt;/div></div>
+					&lt;/div>
+				</div>
+				<div id="container2">
+					&lt;div id="container2">
+					<div class="c" data-x="x xx">&lt;div class="c" data-x="x xx">&lt;/div></div>
+					&lt;/div>
+				</div>
+				&lt;/div>
+			</div>
+			<div class="score-board">
+				<h3>정답율 : <span id="score" class="score-point">0</span>%</h3>
+			</div>
+		</div>
+		<div class="card quiz">
+			<!-- TODO  문제에 focusing 되면 코드 영역 강조표시 -->
+			<div class="selector-check">
+				Selector 확인 : <input type="text" id="selector-test" placeholder="Selector로 조회가능 (예 : #container1, div)"/>
+			</div>
+			<div class="quiz-list">
+				<div class="quiz-answer">
+					<div class="quiz-area">- id가 "id1"인 element</div>
+					<div class="answer-area"><input type="text" class="custom-answer"/></div>
+					<div class="answer-check hidden">#id1</div>
+				</div>
+				<div class="quiz-answer">
+					<div class="quiz-area">- class로 "b"를 가진 모든 elements</div>
+					<div class="answer-area"><input type="text" class="custom-answer"/></div>
+					<div class="answer-check hidden">.b</div>
+				</div>
+				<div class="quiz-answer">
+					<div class="quiz-area">- div element 중에 class로 "a"를 가진 모든 elements</div>
+					<div class="answer-area"><input type="text" class="custom-answer"/></div>
+					<div class="answer-check hidden">div.a</div>
+				</div>
+				<div class="quiz-answer">
+					<div class="quiz-area">- attribute로 "data-x"를 가진 모든 elements</div>
+					<div class="answer-area"><input type="text" class="custom-answer"/></div>
+					<div class="answer-check hidden">[data-x]</div>
+				</div>
+				<div class="quiz-answer">
+					<div class="quiz-area">- div element 중에 attribute로 "data-x"를 가진 모든 elements</div>
+					<div class="answer-area"><input type="text" class="custom-answer"/></div>
+					<div class="answer-check hidden">div[data-x]</div>
+				</div>
+				<div class="quiz-answer">
+					<div class="quiz-area">- attribute로 "data-x"를 가지고, 그 값이 "x"인 elements</div>
+					<div class="answer-area"><input type="text" class="custom-answer"/></div>
+					<div class="answer-check hidden">[data-x=x]</div>
+				</div>
+				<div class="quiz-answer">
+					<div class="quiz-area">- attribute로 "data-x"를 가지고, 그 값의 시작값이 "pre"인 elements</div>
+					<div class="answer-area"><input type="text" class="custom-answer"/></div>
+					<div class="answer-check hidden">[data-x^=pre]</div>
+				</div>
+				<div class="quiz-answer">
+					<div class="quiz-area">- attribute로 "data-x"를 가지고, 그 값의 끝값이 "suf"인 elements</div>
+					<div class="answer-area"><input type="text" class="custom-answer"/></div>
+					<div class="answer-check hidden">[data-x$=suf]</div>
+				</div>
+				<div class="quiz-answer">
+					<div class="quiz-area">- attribute로 "data-x"를 가지고, 그 값중에 "re"라는 글자가 포함된 elements</div>
+					<div class="answer-area"><input type="text" class="custom-answer"/></div>
+					<div class="answer-check hidden">[data-x*=re]</div>
+				</div>
+				<div class="quiz-answer">
+					<div class="quiz-area">- attribute로 "data-x"를 가지고, 그 여러 값 중 하나가 'xx'인 elements</div>
+					<div class="answer-area"><input type="text" class="custom-answer"/></div>
+					<div class="answer-check hidden">[class~=xx]</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="btn-area-parent">
+		<div class="btn-area">
+			<input type="button" class="btn btn-primary" value="정답제출"/>
+			<input type="button" class="btn btn-danger" value="정답확인"/>
+		</div>
+	</div>
+</div>
+<script>
+	function addClass(selector, className) {
+		[].forEach.call(document.querySelectorAll('.selector-root *'), (ele) => { ele.classList.remove(className); });
+		try {	// 불필요한 exception bypass
+			if(document.querySelectorAll(selector)) {
+				[].forEach.call(document.querySelectorAll('.selector-root ' + selector), (ele) => { ele.classList.add(className); });
+			}
+		} catch(e) {};
+	}
+	// TODO : 크롬과 같은 selector 만들어보기
+	document.getElementById('selector-test').addEventListener('keyup', (eve)=>{	addClass(eve.currentTarget.value, 'highlight'); });
+</script>
+</body>
+</html>
