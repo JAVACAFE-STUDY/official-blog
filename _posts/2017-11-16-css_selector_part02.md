@@ -13,7 +13,7 @@ author : 이영범
 
 
 [지난 시간](http://tech.javacafe.io/css/2017/11/09/css_selector_part01/)에 CSS selector를 사용할 수 있는 라이브러리/메서드에 대해서 알아봤습니다<br>
-이번 시간에는 실전편으로 실제로 사용되는 CSS Selector들에 대해서 알아보겠습니다
+이번 시간부터는 실전편으로 실제로 사용되는 CSS Selector들에 대해서 알아보겠습니다
 
 # 기본 
 가장 많이 사용되는 간단한 Selector부터 알아보겠습니다<br>
