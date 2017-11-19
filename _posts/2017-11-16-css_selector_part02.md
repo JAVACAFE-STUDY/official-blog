@@ -13,7 +13,7 @@ author : 이영범
 
 
 [지난 시간](http://tech.javacafe.io/css/2017/11/09/css_selector_part01/)에 CSS selector를 사용할 수 있는 라이브러리/메서드에 대해서 알아봤습니다<br>
-이번 시간에는 실제로 CSS Selector에는 어떤 것들이 있는지 알아보겠습니다
+이번 시간에는 실전편으로 실제로 사용되는 CSS Selector들에 대해서 알아보겠습니다
 
 # 기본 
 가장 많이 사용되는 간단한 Selector부터 알아보겠습니다<br>
@@ -24,13 +24,13 @@ author : 이영범
 # 문제풀이와 설명
 
 설명의 편의를 위해 먼저 지난 시간에 만든 Selector에 사용할 메서드부터 정의하겠습니다<br>
-그리고 직접 selector를 실시간으로 조회해 보기 원하시면 <a href="/html/posts/2017-11-16-css_selector_part02_001.html" target="_blank">Selector Quiz</a>의 "Selector 확인"을 활용하세요
+(앞으로 나오는 selector를 실시간으로 실습해 보기 원하시면 <a href="/html/posts/2017-11-16-css_selector_part02_001.html" target="_blank">Selector Quiz</a>의 "Selector 확인"을 활용하세요)
 ```javascript
-var $$ = $ || document.querySelectorAll.bind(document);     // select 하고자 하는 대상이 복수
-var $ = $ || document.querySelector.bind(document);     // select 하고자 하는 대상이 단수
+const $$ = document.querySelectorAll.bind(document);     // select 하고자 하는 대상이 복수
+const $ = document.querySelector.bind(document);     // select 하고자 하는 대상이 단수
 ```
 
-id와 class의 이름으로 조회하는건 매우 간단하고 가장 많이 사용됩니다
+제일 먼저 매우 간단하고 가장 많이 사용되는 id와 class selector를 살펴보겠습니다
 ```javascript
 $('#idName')    // id로 조회
 $$('.class-name')    // class로 조회
@@ -41,8 +41,8 @@ $$('.class-name')    // class로 조회
 $$('div.class-name')    // div element이면서 class이름이 class-name인 element 조회
 ```
 
-조금 더 심화시켜서 attribute 조회를 보겠습니다<br>
-아래와 같이 작성하면 element 내부에 attribute가 선언만 되어 있어도 조회가 가능합니다
+조금 더 심화시켜서 attribute를 조회하는 selector를 보겠습니다<br>
+아래와 같이 작성하면 element 내부에 attribute가 선언되어 있는 (attribute의 값의 유무, 일치여부와 상관없이) 모든 element의 조회가 가능합니다
 ```javascript
 $$('[id]')    // 내부에 id attribute가 선언된 모든 element 조회
 $$('[class]')    // 내부에 class attribute가 선언된 모든 element 조회
@@ -80,14 +80,13 @@ $$('data-x*=re')    // data-x attribute를 가지고 있고, 그 각각의 값�
 "~=" 연산자와 "=" 연산자의 차이점을 주목하시기 바랍니다. "="연산자는 atrribute의 값이 하나인 경우에만 사용할 수 있지만 "~=" 연산자는 값이 여럿인 경우에도 사용이 가능합니다
 ```javascript
 $$('data-x~=xx')    // data-x attribute를 가지고 있고, 그 각각의 값중에 're'라는 글자가 포함된 모든 element 조회
-
 ```
 
-추가적으로 실용성은 떨어지지만 값을 하이픈으로 분류했을때(예: data-x="pre-x xx" -> pre만 일치, xx는 하이픈이 없어서 제외) 앞의 문자와 정확히 일치하는지 여부를 확인하는 "|=" 연산자도 있습니다<br>
+추가적으로 실용성은 떨어지지만 값을 하이픈으로 분류했을 때 (예: data-x="pre-x xx" -> pre만 일치, xx는 하이픈이 없어서 제외) 앞의 문자와 정확히 일치하는지 여부를 확인하는 "|=" 연산자도 있습니다<br>
 해당 연산자는 과거에 lang="en-us"같이 attribute에 언어 정보(en)를 조회할 때 사용되었지만 현재는 복잡성 때문에 실용성이 많이 떨어집니다 
 ```javascript
-$$('[lang|=en]')    // data-x attribute를 가지고 있고, 그 각각의 값을 하이픈으로 분리했을 때 분류된 첫 단어가 'pre'와 정확히 일치하는 모든 element 조회
+$$('[lang|=en]')    // data-x attribute를 가지고 있고, 그 각각의 값을 하이픈으로 분리했을 때 분류된 첫 단어가 'en'과 정확히 일치하는 모든 element 조회
 ```
 
 이상으로 기본적인 Selector에 대해서 알아보았습니다<br>
-다음 시간에는 내용을 조금 더 심화해서 selector를 조합하는 방법과 형제, 자식, 자손 등을 조회하는 방법에 대해서 알아보겠습니다
+다음 시간에는 내용을 조금 더 심화시켜서 selector를 조합하는 방법과 형제, 자식, 자손 등을 조회하는 방법에 대해서 알아보겠습니다
