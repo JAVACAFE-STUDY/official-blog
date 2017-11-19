@@ -8,6 +8,12 @@
 			/*margin: 0;*/
 			min-width: 800px
 		}
+		h1, h5 {
+			margin: 12px
+		}
+		h5 {
+			color: #122b40;
+		}
 		input {
 			font-size: 15px
 		}
@@ -60,10 +66,14 @@
 			background-color: #cccccc;
 		}
 		#selector-test {
-			width: 70%
+			width: 60%
 		}
 		.highlight {
 			outline: 3px dashed orange !important
+		}
+		.selected {
+			background-color: orange;
+			opacity: 0.5
 		}
 		.quiz-answer div {
 			padding: 2px
@@ -96,6 +106,12 @@
 			cursor: pointer;
 			border-radius: .25rem
 		}
+		.btn:hover {
+			opacity: 0.7
+		}
+		.btn:focus {
+			outline: none;
+		}
 		.btn-primary {
 			background-color: #0A74FF;
 		}
@@ -115,7 +131,8 @@
 	</style>
 </head>
 <body>
-<h1 align="center">Selector 테스트 - 기초</h2>
+<h1 align="center">Selector 테스트 - 기초</h1>
+<h5 align="center">우측의 문제를 보고 좌측의 코드에 해당하는 영역을 조회하기 위한 selector를 작성하세요</h5>
 <div class="container">
 	<div class="cards">
 		<div class="card cord-card">
@@ -144,121 +161,131 @@
 			</div>
 		</div>
 		<div class="card quiz">
-			<!-- TODO  문제에 focusing 되면 코드 영역 강조표시 -->
 			<div class="selector-check">
-				Selector 확인 : <input type="text" id="selector-test" placeholder="Selector로 조회가능 (예 : #container1, div)"/>
+				Selector 확인 : $$('<input type="text" id="selector-test" placeholder="검색하려는 Selector 입력 (예 : div, #id1)"/>')
 			</div>
 			<div class="quiz-list">
-				<div class="quiz-answer">
-					<div class="quiz-area">- id가 "id1"인 element</div>
-					<div class="answer-area"><input type="text" class="custom-answer"/></div>
-					<div class="answer-check hidden">#id1</div>
-				</div>
-				<div class="quiz-answer">
-					<div class="quiz-area">- class로 "b"를 가진 모든 elements</div>
-					<div class="answer-area"><input type="text" class="custom-answer"/></div>
-					<div class="answer-check hidden">.b</div>
-				</div>
-				<div class="quiz-answer">
-					<div class="quiz-area">- div element 중에 class로 "a"를 가진 모든 elements</div>
-					<div class="answer-area"><input type="text" class="custom-answer"/></div>
-					<div class="answer-check hidden">div.a</div>
-				</div>
-				<div class="quiz-answer">
-					<div class="quiz-area">- attribute로 "data-x"를 가진 모든 elements</div>
-					<div class="answer-area"><input type="text" class="custom-answer"/></div>
-					<div class="answer-check hidden">[data-x]</div>
-				</div>
-				<div class="quiz-answer">
-					<div class="quiz-area">- div element 중에 attribute로 "data-x"를 가진 모든 elements</div>
-					<div class="answer-area"><input type="text" class="custom-answer"/></div>
-					<div class="answer-check hidden">div[data-x]</div>
-				</div>
-				<div class="quiz-answer">
-					<div class="quiz-area">- attribute로 "data-x"를 가지고, 그 값이 "x"인 elements</div>
-					<div class="answer-area"><input type="text" class="custom-answer"/></div>
-					<div class="answer-check hidden">[data-x=x]</div>
-				</div>
-				<div class="quiz-answer">
-					<div class="quiz-area">- attribute로 "data-x"를 가지고, 그 값의 시작값이 "pre"인 elements</div>
-					<div class="answer-area"><input type="text" class="custom-answer"/></div>
-					<div class="answer-check hidden">[data-x^=pre]</div>
-				</div>
-				<div class="quiz-answer">
-					<div class="quiz-area">- attribute로 "data-x"를 가지고, 그 값의 끝값이 "suf"인 elements</div>
-					<div class="answer-area"><input type="text" class="custom-answer"/></div>
-					<div class="answer-check hidden">[data-x$=suf]</div>
-				</div>
-				<div class="quiz-answer">
-					<div class="quiz-area">- attribute로 "data-x"를 가지고, 그 값중에 "re"라는 글자가 포함된 elements</div>
-					<div class="answer-area"><input type="text" class="custom-answer"/></div>
-					<div class="answer-check hidden">[data-x*=re]</div>
-				</div>
-				<div class="quiz-answer">
-					<div class="quiz-area">- attribute로 "data-x"를 가지고, 그 여러 값 중 하나가 'xx'인 elements</div>
-					<div class="answer-area"><input type="text" class="custom-answer"/></div>
-					<div class="answer-check hidden">[class~=xx]</div>
-				</div>
 			</div>
 		</div>
 	</div>
 	<div class="btn-area-parent">
 		<div class="btn-area">
 			<input id="submit" type="button" class="btn btn-primary" value="정답제출"/>
-			<input id="checkAnswers" type="button" class="btn btn-danger" value="정답확인"/>
+			<!--<input id="checkAnswers" type="button" class="btn btn-danger" value="정답확인"/>-->
+			<input id="reset" type="button" class="btn btn-danger" value="초기화"/>
 		</div>
 	</div>
 </div>
 <script>
-	const $$ = document.querySelectorAll.bind(document);
-	const $ = document.querySelector.bind(document);
+    const $$ = document.querySelectorAll.bind(document),
+        $ = document.querySelector.bind(document),
+        answers = [
+            {seq: '1', selector: '#id1', desc: 'id가 "id1"인 element'},
+            {seq: '2', selector: '.b', desc: 'class로 "b"를 가진 모든 elements'},
+            {seq: '3', selector: 'div.a', desc: 'div element 중에 class로 "a"를 가진 모든 elements'},
+            {seq: '4', selector: '[data-x]', desc: 'attribute로 "data-x"를 가진 모든 elements'},
+            {seq: '5', selector: 'div[data-x]', desc: 'div element 중에 attribute로 "data-x"를 가진 모든 elements'},
+            {seq: '6', selector: '[data-x=x-suf]', desc: 'attribute로 "data-x"를 가지고, 그 값이 하나이고 "x-suf"인 elements'},
+            {seq: '7', selector: '[data-x^=pre]', desc: 'attribute로 "data-x"를 가지고, 그 값의 시작값이 "pre"인 elements'},
+            {seq: '8', selector: '[data-x$=suf]', desc: 'attribute로 "data-x"를 가지고, 그 값의 끝값이 "suf"인 elements'},
+            {seq: '9', selector: '[data-x*=re]', desc: 'attribute로 "data-x"를 가지고, 그 값중에 "re"라는 글자가 포함된 elements'},
+            {seq: '10', selector: '[data-x~=xx]', desc: 'attribute로 "data-x"를 가지고, 그 값이 여럿이고 값 중 하나가 "xx"인 elements'}
+        ];
 
-	function addClass(selector, className, root) {
-	    const defaultSelector = ((root||'') + ' ' + selector).trim(),
-			target = $$(defaultSelector),
-			pastTarget = $$(root + ' *');
-		[].forEach.call(pastTarget, (ele) => { ele.classList.remove(className); });
-		try {	// 불필요한 exception bypass
-			if(defaultSelector!==root && target) {
-				[].forEach.call(target, (ele) => { ele.classList.add(className); });
-			}
-		} catch(e) {};
-	}
-	function submit () {
-	    const ansBoxes = $$('.quiz-answer'),
-			answerCount = ansBoxes.length;
-	    let rightAnswerCount = answerCount;
+    (function () {
+        const quizList = $('.quiz-list');
+        let appended = '';
+        answers.forEach((ele)=>{
+            appended += `<div class="quiz-answer" data-quiz-no="${ele.seq}">
+						<div class="quiz-area">- ${ele.desc}</div>
+						<div class="answer-area"><input type="text" class="custom-answer" data-quiz-no="${ele.seq}"/></div>
+						<div class="answer-check hidden">${ele.selector}</div>
+					</div>`
+        });
+        quizList.innerHTML = appended;
+    })();
+
+    function addClassKeyUp(selector, className, root) {
+        try {	// 불필요한 exception bypass
+            const defaultSelector = ((root||'') + ' ' + selector).trim(),
+                target = $$(defaultSelector),
+                pastTarget = $$(root + ' *');
+            [].forEach.call(pastTarget, (ele) => { ele.classList.remove(className); });
+            if(defaultSelector!==root && target) {
+                [].forEach.call(target, (ele) => { ele.classList.add(className); });
+            }
+        } catch(e) {};
+    }
+    function addClass(selector, className, root) {
+        const defaultSelector = ((root||'') + ' ' + selector).trim(),
+            target = $$(defaultSelector);
+        if(defaultSelector!==root && target) {
+            [].forEach.call(target, (ele) => { ele.classList.add(className); });
+        }
+    }
+    function removeClass(selector, className, root) {
+        const defaultSelector = ((root||'') + ' ' + selector).trim(),
+            target = $$(defaultSelector);
+        if(defaultSelector!==root && target) {
+            [].forEach.call(target, (ele) => { ele.classList.remove(className); });
+        }
+    }
+    function submit () {
+        const ansBoxes = $$('.quiz-answer'),
+            answerCount = ansBoxes.length;
+        let rightAnswerCount = answerCount;
+
         [].forEach.call(ansBoxes, (ele)=>{
+
             const answerArea = [].filter.call(ele.children, (ele)=>{
-					return ele.classList.contains('answer-area');
-				})[0].children[0],
-				answer = answerArea.value,
+                    return ele.classList.contains('answer-area');
+                })[0].children[0],
+                answer = answerArea.value,
                 rightAnswerArea = [].filter.call(ele.children, (ele)=>{
                     return ele.classList.contains('answer-check');
                 })[0],
-                rightAnswer = rightAnswerArea.innerHTML
-				;
-			if(answer!==rightAnswer) {
+                rightAnswer = rightAnswerArea.innerHTML;
+
+            if(answer!==rightAnswer) {
                 rightAnswerArea.classList.add('wrong');
                 rightAnswerCount--;
-			} else {
+            } else {
                 rightAnswerArea.classList.remove('wrong');
-			}
+            }
         });
         $('#score').innerHTML = parseInt((rightAnswerCount / answerCount) * 100);
-        alert('채점이 끝났습니다');
+        checkAnswers();
     }
-	function checkAnswers () {
-	    const answerChecks= $$('.quiz-answer .answer-check');
-		[].forEach.call(answerChecks, (ele) => {
+    function checkAnswers () {
+        const answerChecks = $$('.quiz-answer .answer-check');
+        [].forEach.call(answerChecks, (ele) => {
             ele.classList.remove('hidden');
-		});
-	}
-	// TODO : 크롬과 같은 selector 만들어보기
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>> add eventListeners >>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    document.getElementById('selector-test').addEventListener('keyup', (eve)=>{	addClass(eve.currentTarget.value, 'highlight', '.selector-root'); });
-    document.getElementById('submit').addEventListener('click', submit);
-    document.getElementById('checkAnswers').addEventListener('click', checkAnswers);
+        });
+    }
+    function reset () {
+        const answerChecks = $$('.quiz-answer .answer-check');
+        [].forEach.call(answerChecks, (ele) => {
+            ele.classList.add('hidden');
+        });
+        $('#score').innerHTML = 0;
+    }
+
+	/*>>>>>>>>>>>>>>>>>>>>>>>>>>>> add eventListeners >>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+    $('#selector-test').addEventListener('keyup', (eve)=>{	addClassKeyUp(eve.currentTarget.value, 'highlight', '.selector-root'); });
+    $('#submit').addEventListener('click', submit);
+    //    $('.checkAnswers').addEventListener('click', checkAnswers);
+    $('#reset').addEventListener('click', reset);
+
+    [].forEach.call($$('.quiz-list .custom-answer'), (ele)=> {
+        ele.addEventListener('focus', (eve)=>{
+            const targetSelector = answers.filter((ele)=>{ return ele.seq===eve.target.dataset.quizNo; })[0].selector;
+            addClass(targetSelector, 'selected', '.selector-root');
+        });
+        ele.addEventListener('focusout', (eve)=>{
+            const targetSelector = answers.filter((ele)=>{ return ele.seq===eve.target.dataset.quizNo; })[0].selector;
+            removeClass(targetSelector, 'selected', '.selector-root');
+        });
+    });
 	/*<<<<<<<<<<<<<<<<<<<<<<<<<<<< add eventListeners <<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 </script>
 </body>

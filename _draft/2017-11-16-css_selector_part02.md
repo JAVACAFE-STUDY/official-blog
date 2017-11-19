@@ -1,6 +1,6 @@
 ---
-title: 'CSS Selector Part.01'
-date: 2017-11-09 12:00:00
+title: 'CSS Selector Part.02'
+date: 2017-11-16 12:00:00
 categories:
 - css
 tags:
