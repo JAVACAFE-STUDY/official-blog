@@ -62,27 +62,27 @@ attribute의 값이 일치하는 대상도 찾을수 있습니다<br>
 먼저 attribute의 값이 하나만 지정된 경우에 사용할 수 있는 = 연산자입니다<br>
 해당 연산자를 제외한 이하의 연산자는 단/복수인 경우 모두 사용 가능합니다
 ```javascript
-$$('data-x=x')    // data-x attribute를 가지고 있고 그 값이 'x'인 모든 element 조회
+$$('data-x=x-suf')    // attribute로 "data-x"를 가지고, 그 값이 하나이면서 "x-suf"인 elements
 ```
 
 ## Pattern matching
 한 번 더 심화시켜서 attribute의 값의 일치여부에 정규식과 유사한 로직을 넣을수도 있습니다<br>
 ^, $는 정규식에서 각각 시작값/끝값의 일치여부를 조사합니다. 이와 동일한 로직을 selector에서도 사용할 수 있습니다<br>
 ```javascript
-$$('data-x^=pre')    // data-x attribute를 가지고 있고, 그 각각의 값의 시작값이 'pre'인 모든 element 조회
-$$('data-x$=suf')    // data-x attribute를 가지고 있고, 그 각각의 값의 끝값이 'suf'인 모든 element 조회
+$$('data-x^=pre')    // attribute로 "data-x"를 가지고, 그 값의 시작값이 "pre"인 elements
+$$('data-x$=suf')    // attribute로 "data-x"를 가지고, 그 값의 끝값이 "suf"인 elements
 ```
 
 *(와일드카드) 또한 사용 가능합니다. 값중의 일부라도 일치하는 모든 대상을 조회할 수 있습니다
 ```javascript
-$$('data-x*=re')    // data-x attribute를 가지고 있고, 그 각각의 값중에 're'라는 글자가 포함된 모든 element 조회
+$$('data-x*=re')    // attribute로 "data-x"를 가지고, 그 값중에 "re"라는 글자가 포함된 elements
 ```
 
 ## etc.
 ~을 사용하면 해당하는 값이 복수로 선언되어 있을 때(예: data-x="a b c"), 그중에 일치하는 대상이 있는 경우를 조회할 수 있습니다<br>
 "~=" 연산자와 "=" 연산자의 차이점을 주목하시기 바랍니다. "="연산자는 atrribute의 값이 하나인 경우에만 사용할 수 있지만 "~=" 연산자는 값이 여럿인 경우에도 사용이 가능합니다
 ```javascript
-$$('data-x~=xx')    // data-x attribute를 가지고 있고, 그 각각의 값중에 're'라는 글자가 포함된 모든 element 조회
+$$('data-x~=xx')    // attribute로 "data-x"를 가지고, 그 값이 여럿이고 값 중 하나가 "xx"인 elements
 ```
 
 추가적으로 실용성은 떨어지지만 값을 하이픈으로 분류했을 때 (예: data-x="pre-x xx" -> pre만 일치, xx는 하이픈이 없어서 제외) 앞의 문자와 정확히 일치하는지 여부를 확인하는 "|=" 연산자도 있습니다<br>
