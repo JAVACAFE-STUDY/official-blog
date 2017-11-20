@@ -20,8 +20,6 @@ author : 이영범
 그냥 하면 재미가 없으니까 간단한 퀴즈로 시작해 보겠습니다<br>
 <a href="/html/posts/2017-11-16-css_selector_part02_001.html" target="_blank">Selector Quiz</a>를 클릭해서 현재 수준을 진단해 보세요
 
-
-#문제풀이와 설명
 ##Selector 메서드 정의
 설명의 편의를 위해 먼저 지난 시간에 만든 Selector에 사용할 메서드부터 정의하겠습니다<br>
 (앞으로 나오는 selector를 실시간으로 실습해 보기 원하시면 <a href="/html/posts/2017-11-16-css_selector_part02_001.html" target="_blank">Selector Quiz</a>의 "Selector 확인"을 활용하세요)
@@ -29,6 +27,8 @@ author : 이영범
 const $$ = document.querySelectorAll.bind(document);     // select 하고자 하는 대상이 복수
 const $ = document.querySelector.bind(document);     // select 하고자 하는 대상이 단수
 ```
+
+#문제풀이와 설명
 
 ##기본 Selector
 제일 먼저 매우 간단하고 가장 많이 사용되는 id와 class selector를 살펴보겠습니다
