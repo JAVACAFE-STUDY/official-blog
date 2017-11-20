@@ -15,13 +15,13 @@ author : 이영범
 [지난 시간](http://tech.javacafe.io/css/2017/11/09/css_selector_part01/)에 CSS selector를 사용할 수 있는 라이브러리/메서드에 대해서 알아봤습니다<br>
 이번 시간부터는 실전편으로 실제로 사용되는 CSS Selector들에 대해서 알아보겠습니다
 
-# Quiz 
+#Quiz 
 가장 많이 사용되는 간단한 Selector부터 알아보겠습니다<br>
 그냥 하면 재미가 없으니까 간단한 퀴즈로 시작해 보겠습니다<br>
 <a href="/html/posts/2017-11-16-css_selector_part02_001.html" target="_blank">Selector Quiz</a>를 클릭해서 현재 수준을 진단해 보세요
 
 
-# 문제풀이와 설명
+#문제풀이와 설명
 ##Selector 메서드 정의
 설명의 편의를 위해 먼저 지난 시간에 만든 Selector에 사용할 메서드부터 정의하겠습니다<br>
 (앞으로 나오는 selector를 실시간으로 실습해 보기 원하시면 <a href="/html/posts/2017-11-16-css_selector_part02_001.html" target="_blank">Selector Quiz</a>의 "Selector 확인"을 활용하세요)
@@ -42,7 +42,7 @@ $$('.class-name')    // class로 조회
 $$('div.class-name')    // div element이면서 class이름이 class-name인 element 조회
 ```
 
-## Attribute selector
+##Attribute selector
 조금 더 심화시켜서 attribute를 조회하는 selector를 보겠습니다<br>
 아래와 같이 작성하면 element 내부에 attribute가 선언되어 있는 (attribute의 값의 유무, 일치여부와 상관없이) 모든 element의 조회가 가능합니다
 ```javascript
