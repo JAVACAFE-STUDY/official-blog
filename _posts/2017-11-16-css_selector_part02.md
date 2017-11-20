@@ -90,6 +90,6 @@ $$('data-x~=xx')    // data-x attribute를 가지고 있고, 그 각각의 값�
 ```javascript
 $$('[lang|=en]')    // data-x attribute를 가지고 있고, 그 각각의 값을 하이픈으로 분리했을 때 분류된 첫 단어가 'en'과 정확히 일치하는 모든 element 조회
 ```
-###To the next
+###The next step
 이상으로 기본적인 Selector에 대해서 알아보았습니다<br>
 다음 시간에는 내용을 조금 더 심화시켜서 selector를 조합하는 방법과 형제, 자식, 자손 등을 조회하는 방법에 대해서 알아보겠습니다
