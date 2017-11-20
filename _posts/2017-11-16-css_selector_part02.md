@@ -22,7 +22,7 @@ author : 이영범
 
 
 # 문제풀이와 설명
-
+##Selector 메서드 정의
 설명의 편의를 위해 먼저 지난 시간에 만든 Selector에 사용할 메서드부터 정의하겠습니다<br>
 (앞으로 나오는 selector를 실시간으로 실습해 보기 원하시면 <a href="/html/posts/2017-11-16-css_selector_part02_001.html" target="_blank">Selector Quiz</a>의 "Selector 확인"을 활용하세요)
 ```javascript
@@ -30,6 +30,7 @@ const $$ = document.querySelectorAll.bind(document);     // select 하고자 하
 const $ = document.querySelector.bind(document);     // select 하고자 하는 대상이 단수
 ```
 
+##기본
 제일 먼저 매우 간단하고 가장 많이 사용되는 id와 class selector를 살펴보겠습니다
 ```javascript
 $('#idName')    // id로 조회
@@ -41,6 +42,7 @@ $$('.class-name')    // class로 조회
 $$('div.class-name')    // div element이면서 class이름이 class-name인 element 조회
 ```
 
+# Attribute selector
 조금 더 심화시켜서 attribute를 조회하는 selector를 보겠습니다<br>
 아래와 같이 작성하면 element 내부에 attribute가 선언되어 있는 (attribute의 값의 유무, 일치여부와 상관없이) 모든 element의 조회가 가능합니다
 ```javascript
@@ -64,6 +66,7 @@ attribute의 값이 일치하는 대상도 찾을수 있습니다<br>
 $$('data-x=x')    // data-x attribute를 가지고 있고 그 값이 'x'인 모든 element 조회
 ```
 
+##Pattern matching
 한 번 더 심화시켜서 attribute의 값의 일치여부에 정규식과 유사한 로직을 넣을수도 있습니다<br>
 ^, $는 정규식에서 각각 시작값/끝값의 일치여부를 조사합니다. 이와 동일한 로직을 selector에서도 사용할 수 있습니다<br>
 ```javascript
@@ -87,6 +90,6 @@ $$('data-x~=xx')    // data-x attribute를 가지고 있고, 그 각각의 값�
 ```javascript
 $$('[lang|=en]')    // data-x attribute를 가지고 있고, 그 각각의 값을 하이픈으로 분리했을 때 분류된 첫 단어가 'en'과 정확히 일치하는 모든 element 조회
 ```
-
+###To the next
 이상으로 기본적인 Selector에 대해서 알아보았습니다<br>
 다음 시간에는 내용을 조금 더 심화시켜서 selector를 조합하는 방법과 형제, 자식, 자손 등을 조회하는 방법에 대해서 알아보겠습니다
