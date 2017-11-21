@@ -3,6 +3,17 @@ layout: page
 description: "Javacafe Tech Blog"
 ---
 
+<div class="input-group">
+        <div class="form-group  has-feedback">
+            <input type="text" class="form-control" id="inputSuccess5">
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+        </div>
+    </div>
+    <br>
+</div>
+<br><br>
+    
+
 {% for post in paginator.posts %}
 <div class="post-preview">
     <a href="{{ post.url | prepend: site.baseurl }}">
