@@ -17,6 +17,35 @@
 
 ---
 
+# Local 에서 jekyll 로 블로그 서버 확인방법
+
+현재 홈페이지는 jekyll 로 실행되고 있으며 홈페이지 자체 레이아웃 변경 테스트를 위해서는 Local 컴퓨터에서 jekyll 로 확인하는 것이 좋다.
+
+1. jekyll 을 설치하기 위해서는 ruby 환경이 필요하다. 루비부터 설치하자. 노드제이에스도 설치하자.
+
+2. 의존성 있는 gem 모듈 설치 
+
+```bash
+gem install bundler
+gem install jekyll-paginate
+gem install jekyll-paginate
+gem jekyll-feed
+```
+
+3. 의존성 있는 노드 모듈 설치
+
+```bash
+npm install
+```
+
+3. jekyll 로 서버동작 시키기 
+
+```bash
+jekyll serve -w
+```
+
+---
+
 
 #Clean Blog by Start Bootstrap - Jekyll Version
 
