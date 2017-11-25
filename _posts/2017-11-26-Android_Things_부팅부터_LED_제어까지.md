@@ -140,7 +140,7 @@ adb connect 192.168.0.23
 adb devices
 ```
 
-<img src="/img/android-things/FirstAndroidThings/adb_connect02.png" width="500px" />
+<img src="/img/android-things/FirstAndroidThings/adb-connect02.png" width="500px" />
 
 이제 ADB 가 연결되었기 때문에 평소 안드로이드 개발하듯이 라즈베리파이3 에 프로그램을 업로드 할수 있게 되었습니다. 
 
