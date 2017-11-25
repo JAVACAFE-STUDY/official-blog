@@ -19,6 +19,13 @@
 			clear: both;
 			display: block
 		}
+		.card {
+			padding-left: 10px;
+			padding-right: 10px;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+		}
 		.code, .code div {
 			margin: 10px 10px 10px 20px;
 			padding: 10px 5px;
@@ -139,17 +146,19 @@
 				box-sizing: border-box;
 			}
 		}
-		@media (min-width: 920px) {
-			div.card {
-				float: left;
-				width: 50%;
-				/*height: 630px*/
-			}
+		@media (min-width: 920px) and (min-height: 592px) {
 			.cord-card {
 				position: fixed
 			}
 			.quiz {
 				margin-left: 50%;
+			}
+		}
+		@media (min-width: 920px) {
+			div.card {
+				float: left;
+				width: 50%;
+				/*height: 630px*/
 			}
 			body {
 				/*margin: 0;*/
