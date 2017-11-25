@@ -2,14 +2,11 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
 	<title>Selector 테스트 - 기초</title>
 	<style>
-		body {
-			/*margin: 0;*/
-			min-width: 800px
-		}
 		h1, h5 {
-			margin: 12px
+			/*margin: 15px*/
 		}
 		h5 {
 			color: #122b40;
@@ -17,18 +14,17 @@
 		input {
 			font-size: 15px
 		}
-		.container {
-			min-width: 900px
-		}
 		div.cards:after {
 			content: "";
 			clear: both;
 			display: block
 		}
-		div.card {
-			float: left;
-			width: 50%;
-			height: 630px
+		.card {
+			padding-left: 10px;
+			padding-right: 10px;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
 		}
 		.code, .code div {
 			margin: 10px 10px 10px 20px;
@@ -36,34 +32,36 @@
 			outline: 2px dashed #bbbbbb
 		}
 		.code {
-			margin: 10px
+			margin: 10px;
 		}
 		.cord-card {
-			padding-top: 20px;
+			/*padding-top: 20px;*/
 			-webkit-box-sizing: border-box;
 			-moz-box-sizing: border-box;
 			box-sizing: border-box;
 		}
 		.quiz {
-			padding: 0 10px;
+			padding: 0 20px 0 10px;
 			-webkit-box-sizing: border-box;
 			-moz-box-sizing: border-box;
 			box-sizing: border-box;
-			overflow: auto
+			/*overflow: auto*/
 		}
 		.answer-area input {
-			width: 90%
+			width: 100%
 		}
 		.quiz > div {
 			margin-bottom: 15px
 		}
-		.quiz .selector-check {
+		.selector-check {
 			/*margin-bottom: 20px;*/
-			position: fixed;
-			width: 40%;
-			min-width: 384px;
+			/*position: fixed;*/
+			/*width: 40%;*/
+			/*min-width: 384px;*/
 			padding: 15px;
 			background-color: #cccccc;
+			margin-left: 10px;
+			margin-right: 10px;
 		}
 		#selector-test {
 			width: 60%
@@ -77,9 +75,6 @@
 		}
 		.quiz-answer div {
 			padding: 2px
-		}
-		.quiz .quiz-list {
-			margin-top: 70px
 		}
 		.answer-check {
 			font-weight: bold
@@ -119,8 +114,13 @@
 			background-color: #DA2846;
 		}
 		.score-board {
-			float: right;
-			padding: 10px;
+			/*text-align: right;*/
+			/*padding: 10px;*/
+			display: inline-block;
+			margin-right: 7px;
+		}
+		.score-board h3 {
+			display: inline-block;
 		}
 		.score-point {
 			font-weight: bolder;
@@ -128,14 +128,61 @@
 		.wrong {
 			color: red
 		}
+		@media (max-width: 540px) {
+			.selectorInfo {
+				display: none;
+			}
+		}
+		@media (max-width: 919px) {
+			.card {
+				width: 100%
+			}
+			div.cord-card {
+				padding-left: 20px;
+				padding-right: 20px;
+				margin-bottom: 50px;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+			}
+		}
+		@media (min-width: 920px) and (min-height: 592px) {
+			.cord-card {
+				position: fixed
+			}
+			.quiz {
+				margin-left: 50%;
+			}
+		}
+		@media (min-width: 920px) {
+			div.card {
+				float: left;
+				width: 50%;
+				/*height: 630px*/
+			}
+			body {
+				/*margin: 0;*/
+				min-width: 800px
+			}
+		}
+		@media (min-width: 1400px) {
+			.container {
+				max-width: 1400px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		}
 	</style>
 </head>
 <body>
 <h1 align="center">Selector 테스트 - 기초</h1>
-<h5 align="center">좌측의 코드영역에서 우측 문제에 나온 영역을 조회하기 위한 selector를 작성하세요</h5>
+<h5 align="center">아래의 코드영역을 보고 Quiz에 나온 영역을 조회하기 위한 selector를 작성하세요</h5>
 	<div class="container">
 		<div class="cards">
 			<div class="card cord-card">
+				<div class="selector-check">
+					<span class="selectorInfo">Selector</span> 확인 : $$('<input type="text" id="selector-test" placeholder="예 : div, #id1"/>')
+				</div>
 				<div class="selector-root">
 					<div class="code">
 						&lt;div class="code">
@@ -156,20 +203,18 @@
 						&lt;/div>
 					</div>
 				</div>
-				<div class="score-board">
-					<h3>정답율 : <span id="score" class="score-point">0</span>%</h3>
-				</div>
 			</div>
 			<div class="card quiz">
-				<div class="selector-check">
-					Selector 확인 : $$('<input type="text" id="selector-test" placeholder="검색하려는 Selector 입력 (예 : div, #id1)"/>')
-				</div>
+				<h2>Quiz.</h2>
 				<div class="quiz-list">
 				</div>
 			</div>
 		</div>
 		<div class="btn-area-parent">
 			<div class="btn-area">
+				<div class="score-board">
+					<h3>정답율 : <span id="score" class="score-point">0</span>%</h3>
+				</div>
 				<input id="submit" type="button" class="btn btn-primary" value="정답제출"/>
 				<!--<input id="checkAnswers" type="button" class="btn btn-danger" value="정답확인"/>-->
 				<input id="reset" type="button" class="btn btn-danger" value="초기화"/>
@@ -272,6 +317,8 @@
 
 		/*>>>>>>>>>>>>>>>>>>>>>>>>>>>> add eventListeners >>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
         $('#selector-test').addEventListener('keyup', (eve)=>{	addClassKeyUp(eve.currentTarget.value, 'highlight', '.selector-root'); });
+        $('#selector-test').addEventListener('focus', (eve)=>{	addClassKeyUp(eve.currentTarget.value, 'highlight', '.selector-root'); });
+        $('#selector-test').addEventListener('focusout', (eve)=>{	removeClass(eve.currentTarget.value, 'highlight', '.selector-root'); });
         $('#submit').addEventListener('click', submit);
         //    $('.checkAnswers').addEventListener('click', checkAnswers);
         $('#reset').addEventListener('click', reset);
