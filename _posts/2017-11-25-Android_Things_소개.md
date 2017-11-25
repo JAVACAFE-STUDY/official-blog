@@ -20,7 +20,7 @@ Android Things 란 무엇일까요?
 
 Android Things Android 플랫폼으로 사물인터넷(IoT) 까지 확장을 지원하는 것입니다. Android 는 이미 성공한 플랫폼으로 핸드폰 뿐만 아니라 TV, Wearable, Auto 등을 지원합니다.
 
-<img src="http://postfiles8.naver.net/MjAxNzExMjNfMjU1/MDAxNTExNDAxNDYyODY3.fONywhTQOi414KjQwt0G8UKoWiADAGnmkY_rzw4itYgg.bhBp7gMFq227Wrrw88uEBGKSJD8BSCxmarnKYXJKvpog.PNG.akj61300/스크린샷_2017-11-23_오전_10.44.12.png?type=w773" />
+<img src="/img/android-things/Introduction/2017-1125-01.png" />
 
 안드로이드가 여러 플랫폼에 빠르게 확장될 수 있었던 이유는 안드로이드 플랫폼 자체가 오픈소스인 것과 무료로 사용할 수 있는 정책때문이라고 생각됩니다.
 
@@ -30,7 +30,7 @@ Android Things 가 다른 오픈소스들과 다른 점은, 구글이 주도하�
 
 Android Things 는 구글 홈페이지에서 다음과 같이 소개중입니다.
 
-<img src="http://postfiles13.naver.net/MjAxNzExMjNfMTQy/MDAxNTExNDIxODY1NzI2.AMLu2j5KdxALjFE4DU5NvR0oNJepFS3s5S5_mJxJK5Qg.cSxClq8La0rolD1Ll2Pxt3EmqcBYWKniGVgKLl_XaD8g.PNG.akj61300/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2017-11-23_%EC%98%A4%ED%9B%84_4.23.35.png?type=w2" />
+<img src="/img/android-things/Introduction/2017-1125-02.png" />
 
 * The ease and power of Android
 * Rapid prototypes to real products
@@ -53,7 +53,7 @@ Android Things 는 IoT 플랫폼이니까 공부하기 위해서는 먼저 IoT �
 
 #### 스마트 도어락
 
-<img src="http://postfiles11.naver.net/MjAxNzExMjNfMjc3/MDAxNTExNDA0NzQ3NzI3.VQ9yYCEepznjTfmZjjiJeZ1dZRBt6oV0Y0BpzaRmzasg.eOACO0IIdSbOhuW71BZC3qUsjKdSPPP-CMkmdOEuNbcg.GIF.akj61300/DoorSense-Silver-Auto-Lock-closeup_3_1.gif?type=w773" />
+<img src="/img/android-things/Introduction/2017-1125-03.gif" width="500px"/>
 
 스마트 도어락은 기존에 사용된 잠금장치에 대해 사물인터넷을 적용한 것입니다. 주된 기능은 다음과 같습니다.
 
@@ -63,13 +63,13 @@ Android Things 는 IoT 플랫폼이니까 공부하기 위해서는 먼저 IoT �
 
 #### 스마트 자전거 잠금장치 트랙커
 
-<img src="http://postfiles4.naver.net/MjAxNzExMjNfMTAx/MDAxNTExNDA1MTk4Mzg1.vTb-yph7emeQuY_0VcMpqM7cjBapT_SfLnwC3KhH-IIg.EyhJjB5JHbPeTREAawCiy94nnKHlLaSorUdU_v1_-wEg.PNG.akj61300/스크린샷_2017-11-23_오전_11.46.20.png?type=w773" width="500px" />
+<img src="/img/android-things/Introduction/2017-1125-04.png" width="500px" />
 
 스마트 자전거 잠금장치 트랙커는 자전거 잠금장치에 IoT 를 결합해 키없이 자전거를 잠금 또는 해제 할 수 있고, 더불어 GPS 기반으로 Geo Tagging 을 제공합니다.
 
 #### 스마트 스피커
 
-<img src="http://postfiles1.naver.net/MjAxNzExMjNfMTc3/MDAxNTExNDA0Mjk5MjA0.u2v1jjobA1OtjBXAJCNj6vXcAzImafRi9AzgHvLEQoUg.VHGMIlZf0PfHKdr8BK2N5QgrV4uqqrgZA3M2_W5-GjAg.PNG.akj61300/스크린샷_2017-11-23_오전_11.31.12.png?type=w773" width="500px" />
+<img src="/img/android-things/Introduction/2017-1125-05.png" width="500px" />
 
 스마트 스피커는 스피커에 IoT 를 결합한 상품이지만 핵심은 스마트 홈을 제어하는데에 목적이 있습니다. 애플의 시리 삼성의 빅스비처럼 사용자의 음성명령을 인식하고 다른 IoT 장비를 제어하는 것입니다. 
 
@@ -99,7 +99,7 @@ IoT 를 공부해보기 위한 다른 많은 플랫폼들이 있습니다. 라�
 
 IOT 임베디드 장치를 Android 개발하듯이 개발 가능합니다. 다음은 Android 프레임워크 레이어에서 Android Things 의 위치를 보여줍니다.
 
-<img src="http://postfiles5.naver.net/MjAxNzExMjNfMTIw/MDAxNTExNDEyNzMwNDM5.Z_guDYHcC0veC2U2YVguGiQ7LjwL-OjequurFwVMYdog.Zl-bEUnA9FbHOySIgG8hi6fnPz2z4zBSfa59smW9bRYg.PNG.akj61300/스크린샷_2017-11-23_오후_1.51.47.png?type=w773" />
+<img src="/img/android-things/Introduction/2017-1125-06.png" />
 
 Android Things 의 레이어는 Google Service 처럼 App 이 사용하는 라이브러리와 비슷하게 동작합니다. 즉 일반 안드로이드 앱을 개발하는데 임베디드 라이브러리 의존성이 추가된 형태와 비슷합니다.
 
@@ -121,7 +121,7 @@ Android Things 는 이런 구글 서비스들을 모두 쉽게 적용가능하�
 
 IoT 서비스 중 중요한 이슈중 하나는 보안 이슈입니다. 사물에 인터넷 서비스가 들어간다는 이야기를 다시 생각해보면 만약 보안이 취약해 해킹을 당했을때의 그 피해 역시 막대할 것으로 쉽게 생각 해볼 수 있습니다.
 
-<img src="http://postfiles8.naver.net/MjAxNzExMjNfOTYg/MDAxNTExNDE0MTYyMjM3.3m68fXrLipN4sFjEmY8fXb2LyhfF1mV7IpHz96K2hKwg.ZiSyctpPGYCOTUegqLv50IooHD0obZAummUK_cmWrfcg.PNG.akj61300/스크린샷_2017-11-23_오후_2.15.43.png?type=w773" />
+<img src="/img/android-things/Introduction/2017-1125-07.png" />
 
 Android Things 를 사용하는 경우, 플랫폼적 측면에 업데이트는 구글이 책임지게 됩니다. 안드로이드의 보안 업데이트나 월간 보안 패치가 있다면 해당 기기에 자동으로 배포되게 됩니다. 따라서 개발자는 플랫폼적 업데이트는 신경쓰지 않고 앱 개발에 초점을 맞출 수 있습니다.
 
