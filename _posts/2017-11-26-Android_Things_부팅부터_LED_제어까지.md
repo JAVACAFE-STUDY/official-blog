@@ -287,7 +287,8 @@ category.IOT_LAUNCHER 는 앱의 구성요소를 부팅시 자동으로 실행�
 
 이제 MainActivty.kt 파일을 열고 LED 를 제어하는 코드를 작성해보겠습니다.
 
-```kotlin
+{% highlight kotlin %}
+
 package com.akj.firstandroidthings
 
 import android.app.Activity
@@ -354,7 +355,8 @@ class MainActivity : Activity() {
         }
     }
 }
-```
+
+{% endhighlight %}
 
 코드에서 핵심부분은 42번째 라인부터입니다.
 
