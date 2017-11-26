@@ -17,7 +17,9 @@ email_username:
 
 # Build settings
 markdown: kramdown
+timezone: Asia/Seoul
 highlighter: rouge
+excerpt_separator: <!--more-->
 permalink: pretty
 paginate: 5
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
@@ -29,5 +31,6 @@ kramdown:
   toc_levels: 1..6
   coderay_tab_width: 4
   enable_coderay: false
+  line_width: 50
 
 gems: [jekyll-paginate, jekyll-feed]
