@@ -174,7 +174,7 @@ LED 를 라즈베리파이로 제어하기 위한 회로를 만들어보겠습�
 
 여기서 사용할 핀은 Ground 와 GPIO 핀인 BCM6 핀입니다.
 
-<img src="/img/android-things/FirstAndroidThings/pinout02.png" width="400px" />
+<img src="/img/android-things/FirstAndroidThings/pinout02.jpg" width="400px" />
 
 6번 Ground 핀과 31번 BCM6 핀에 M/F 점퍼케이블을 연결하고 빵판에 다음과 같이 연결합니다.
 
