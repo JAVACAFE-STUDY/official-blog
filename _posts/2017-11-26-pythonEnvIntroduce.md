@@ -12,11 +12,11 @@ author : 황희정
 
 Anaconda는 세계에서 가장 유명한 파이썬(Python) 데이터 과학 플랫폼이다. 한번의 클릭으로 모든데이터 과학 패키지를 쉽게 설치하고 패키지, 종속성 및환경을 관리할 수 있다.
 
-![anaconda_feature1](../img/blog/20171126/hwang_20171126_1.png)
+![anaconda_feature1](http://tech.javacafe.io/img/blog/20171126/hwang_20171126_1.png)
 
 
 
-![anaconda_feature2](../img/blog/20171126/hwang_20171126_2.png)
+![anaconda_feature2](http://tech.javacafe.io/img/blog/20171126/hwang_20171126_2.png)
 
 
 
@@ -32,13 +32,13 @@ Anaconda는 세계에서 가장 유명한 파이썬(Python) 데이터 과학 플
 
   (설치 동의 후, 계속 및 설치만 누르면 되므로 설치과정 생략)
 
-  ![anacondainstall](../img/blog/20171126/hwang_20171126_3.png)
+  ![anacondainstall](http://tech.javacafe.io/img/blog/20171126/hwang_20171126_3.png)
 
 
 
 * 설치된 후, 보이는 화면
 
-![anacondascreenshot](../img/blog/20171126/hwang_20171126_4.png)
+![anacondascreenshot](http://tech.javacafe.io/img/blog/20171126/hwang_20171126_4.png)
 
 - Home에서 설치된 패키지 확인 가능
 
@@ -52,7 +52,7 @@ Anaconda는 세계에서 가장 유명한 파이썬(Python) 데이터 과학 플
 
 * Environment탭에서 오른쪽 탭에서 not installed 를 선택 한 후, tensorflow 검색 후, Apply 적용)
 
-![tensorflowinstall](/Users/hwang/Documents/blog/hwang_20171126_9.png)
+![tensorflowinstall](http://tech.javacafe.io/img/blog/20171126/hwang_20171126_9.png)
 
 
 
@@ -64,7 +64,7 @@ Anaconda는 세계에서 가장 유명한 파이썬(Python) 데이터 과학 플
 
 Project Jupyter는 수십 개의 프로그래밍 언어에서 오픈 소스 소프트웨어, 개방형 표준 및 대화식 컴퓨팅을위한 서비스를 지원한다.
 
-![jupyterinfo](/Users/hwang/Documents/blog/hwang_20171126_5.png)
+![jupyterinfo](http://tech.javacafe.io/img/blog/20171126/hwang_20171126_5.png)
 
 
 
@@ -72,20 +72,20 @@ Project Jupyter는 수십 개의 프로그래밍 언어에서 오픈 소스 소�
 
 *  Anaconda Home에서 Jupyter Launch 버튼 클릭하면, 로컬에 브라우저 콘솔창(?)이 실행된다.
 
-![anacondascreenshot](../img/blog/20171126/hwang_20171126_4.png)
+![anacondascreenshot](http://tech.javacafe.io/img/blog/20171126/hwang_20171126_4.png)
 
 
 
-![jupyter](../img/blog/20171126/hwang_20171126_6.png)
+![jupyter](http://tech.javacafe.io/img/blog/20171126/hwang_20171126_6.png)
 
 
 
 * New 버튼을 클릭한다.
 
-  ![jypyter](../img/blog/20171126/hwang_20171126_7.png)
+  ![jypyter](http://tech.javacafe.io/img/blog/20171126/hwang_20171126_7.png)
 
 * 커멘드 실행해보기
 
   * In 쪽에 명령어를 입력하고, ▷ 버튼을 누르면, 결과가 출력된다.
 
-  ![jypytercommand](../img/blog/20171126/hwang_20171126_8.png)
+  ![jypytercommand](http://tech.javacafe.io/img/blog/20171126/hwang_20171126_8.png)
