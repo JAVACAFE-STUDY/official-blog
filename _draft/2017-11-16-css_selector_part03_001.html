@@ -4,9 +4,9 @@
 	<meta charset="UTF-8">
 	<title>Selector 테스트 - 기초</title>
 	<style>
-		body {
+		html, body {
 			/*margin: 0;*/
-			min-width: 800px
+            height: 100%
 		}
 		h1, h5 {
 			margin: 12px
@@ -18,7 +18,11 @@
 			font-size: 15px
 		}
 		.container {
-			min-width: 900px
+			min-width: 800px;
+            height: auto;
+            display: table;
+            min-height: 100px;
+            margin: 0 auto;
 		}
 		div.cards:after {
 			content: "";
@@ -28,7 +32,7 @@
 		div.card {
 			float: left;
 			width: 50%;
-			height: 630px
+			/*height: 630px*/
 		}
 		.code, .code div {
 			margin: 10px 10px 10px 20px;
@@ -49,7 +53,12 @@
 			-webkit-box-sizing: border-box;
 			-moz-box-sizing: border-box;
 			box-sizing: border-box;
-			overflow: auto
+			overflow: auto;
+            
+            height: auto;
+            display: table;
+            min-height: 100px;
+            margin: 0 auto;
 		}
 		.answer-area input {
 			width: 90%
