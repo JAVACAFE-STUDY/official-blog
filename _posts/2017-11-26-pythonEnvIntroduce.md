@@ -1,12 +1,12 @@
 ---
-title: Anaconda와 Jupyter를 이용한 파이썬 실행환경 구축 해보기
+title: Anaconda와 Jupyter Notebook을 이용한 파이썬 실행환경 구축 해보기
 date : 2017-11-26 12:00:00
 author : 황희정
 ---
 
 
 
-# Anaconda와 Jupyter를 이용한 파이썬 실행환경 구축 해보기
+# Anaconda와 Jupyter Notebook을 이용한 파이썬 실행환경 구축 해보기
 
 ## 아나콘다(Anaconda)란?
 
