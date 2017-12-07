@@ -10,13 +10,13 @@ ELasticsearch에서는 버전별로 데이터를 저장하여 이전상태를 �
 어떻게 스냅샷을 만들고 실행하는지 알아 보도록 하겠습니다. 
 먼저 스냅샷을 저장할 경로에 폴더를 만듭니다.
 
-~~~console
+~~~
 #mkdir /home/javacafe/elastic/backup
 ~~~
 
 elasticsearch의 config의 elasticsearch.yml 파일을 열어 아래와 같은 내용을 마지막줄에 추가 합니다. 해당 내용은 /home/javacafe/elastic/backup의 디렉토리에 스냅샷을 저장하겠다는 의미 입니다. 
 
-~~~console
+~~~
 path.repo: ["/home/javacafe/elastic/backup"]
 ~~~
 서버의 설정은 실시간으로 반영 되지 않기 때문에 반영을 위해 elasticsearch를 재기동 합니다. 
@@ -35,7 +35,7 @@ path.repo: ["/home/javacafe/elastic/backup"]
 
 해당 내용을 응답으로 받았다면 정상적으로 저장 된 것 입니다. 
 
-~~~json
+~~~
 {
     "acknowledged": true
 }
@@ -48,7 +48,7 @@ path.repo: ["/home/javacafe/elastic/backup"]
 ~~~
 
 질의에 대한 응답은 아래와 같습니다.
-~~~json
+~~~
 {
     "snapshot": {
         "snapshot": "snapshot_1",
@@ -88,7 +88,7 @@ snapshot_1에 대해서 백업이 시작된 시간 부터 끝나는 시간까지
 ~~~
 
 아래와 같은 메시지를 받았다면 성공적으로 제거가 되었습니다. 
-~~~json
+~~~
 {
     "acknowledged": true
 }
