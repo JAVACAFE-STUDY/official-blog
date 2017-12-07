@@ -8,20 +8,20 @@ author : 김동우
 ELasticsearch에서는 버전별로 데이터를 저장하여 이전상태를 유지 할 수 있는 Snapshot이라는 기능을 제공합니다. 이 모듈은 인덱스의 스탭샷 또는 클러스터 전체의 스냅샷을 만들 수 있습니다. 또한 리포트로 데이터의 저장을 지원 합니다. 
 
 어떻게 스냅샷을 만들고 실행하는지 알아 보도록 하겠습니다. 
-1. 먼저 스냅샷을 저장할 경로에 폴더를 만듭니다.
+먼저 스냅샷을 저장할 경로에 폴더를 만듭니다.
 
 ~~~console
 #mkdir /home/javacafe/elastic/backup
 ~~~
 
-2. elasticsearch의 config의 elasticsearch.yml 파일을 열어 아래와 같은 내용을 마지막줄에 추가 합니다. 해당 내용은 /home/javacafe/elastic/backup의 디렉토리에 스냅샷을 저장하겠다는 의미 입니다. 
+elasticsearch의 config의 elasticsearch.yml 파일을 열어 아래와 같은 내용을 마지막줄에 추가 합니다. 해당 내용은 /home/javacafe/elastic/backup의 디렉토리에 스냅샷을 저장하겠다는 의미 입니다. 
 
 ~~~console
 path.repo: ["/home/javacafe/elastic/backup"]
 ~~~
 서버의 설정은 실시간으로 반영 되지 않기 때문에 반영을 위해 elasticsearch를 재기동 합니다. 
 
-3. 백업 저장소는 API의 Request Body에 데이터를 담아 스냅샷의 저장소를 정의 합니다.
+백업 저장소는 API의 Request Body에 데이터를 담아 스냅샷의 저장소를 정의 합니다.
 
 ~~~console
 #curl -XPUT 'http://localhost:9200/_snapshot/my_backup' -d {
@@ -41,7 +41,7 @@ path.repo: ["/home/javacafe/elastic/backup"]
 }
 ~~~
 
-4. 스냅샷은 전체 클러스터 또는 특정 Index의 백업을 만들 수 있습니다. 해당 API를 통해 전체 클러스터 백업을 질의 할 수 있습니다. 여기서 wait_for_completion = true의 옵션을 주지 않으면 프로세스가 백그라운드로 실행 됩니다. 
+스냅샷은 전체 클러스터 또는 특정 Index의 백업을 만들 수 있습니다. 해당 API를 통해 전체 클러스터 백업을 질의 할 수 있습니다. 여기서 wait_for_completion = true의 옵션을 주지 않으면 프로세스가 백그라운드로 실행 됩니다. 
 
 ~~~console
 #curl -XPUT "localhost:9200/_snapshot/my_backup/snapshot_1?wait_for_completion=true"
@@ -82,7 +82,7 @@ snapshot_1에 대해서 백업이 시작된 시간 부터 끝나는 시간까지
 #curl -XGET 'localhost:9200/_snapshot/my_backup/_all?pretty'
 ~~~
 
-5. 마지막으로 백업된 스냅샷을 제거하고 싶다면 DELETE 메소드를 사용하여 해당 백업을 삭제하면 됩니다. 
+마지막으로 백업된 스냅샷을 제거하고 싶다면 DELETE 메소드를 사용하여 해당 백업을 삭제하면 됩니다. 
 ~~~console
 #curl -XDELETE 'localhost:9200/_snapshot/my_backup/snapshot_1'
 ~~~
