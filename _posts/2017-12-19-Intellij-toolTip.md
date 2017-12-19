@@ -2,6 +2,8 @@ JSON Fragment Edit 기능
 =======================
 
 > Intellij 사용시 JSON을 편집 할 수 있는 **JSON Fragment Edit 기능** 제공 
+
+
 1. JSON문자열을 넣을 String변수 선언. 
 ![](http://tech.javacafe.io/img/blog/20171219/tip_01.png)
 
@@ -23,12 +25,16 @@ JSON Fragment Edit 기능
 7. Fragment 편집 화면에서 JSON을 직접 편집하면 편집한 내용이 자동으로 변수에 값 변환이 되어서 적용 됨. 
 ![](http://tech.javacafe.io/img/blog/20171212/tip_07.png)
 
+
+
+
 ---
 
 
 
 > Inject Ianguage or reference 가 보이지 않을 때 
  ![](http://tech.javacafe.io/img/blog/20171219/tip_08.png)
+
 
 1. command+enter -> Editor -> Intentions 선택. 
 ![](http://tech.javacafe.io/img/blog/20171219/tip_09.png)
