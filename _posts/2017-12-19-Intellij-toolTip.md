@@ -33,7 +33,8 @@ JSON Fragment Edit 기능
 
 
 > Inject Ianguage or reference 가 보이지 않을 때 
- ![](http://tech.javacafe.io/img/blog/20171219/tip_08.png)
+
+![](http://tech.javacafe.io/img/blog/20171219/tip_08.png)
 
 
 1. command+enter -> Editor -> Intentions 선택. 
