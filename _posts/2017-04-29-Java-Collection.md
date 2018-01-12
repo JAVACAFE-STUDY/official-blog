@@ -4,4 +4,4 @@
 사용했던 자료 공유합니다.
 감사합니다.
 
-http://tech.javacafe.io/ppt/JavaCollection.pptx
+https://github.com/JAVACAFE-STUDY/official-blog/tree/master/ppt/JavaCollection
