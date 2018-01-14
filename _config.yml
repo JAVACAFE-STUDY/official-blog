@@ -4,12 +4,14 @@ header-img:
 email:
 copyright_name: Javacafe
 description: "자바카페 블로그"
+author: "자바카페"
 baseurl: ""
 url: "http://tech.javacafe.io"
-twitter_username: 
+image: "http://tech.javacafe.io/img/javacafe/logo-kor-black.png"
+twitter_username:
 github_username:  JAVACAFE-STUDY
 facebook_username: groups/javacafe/
-email_username:  
+email_username:
 
 # Google Analytics
 # To enable google analytics, uncomment below line with a valid Google Tracking ID

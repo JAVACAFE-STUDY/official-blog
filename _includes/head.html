@@ -3,16 +3,36 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="{{ site.description }}">
+    {% if page.layout == 'post' %}
+    {% assign meta_title = page.title %}
+    {% assign meta_author = page.author | default: site.author %}
+    {% assign meta_description = page.excerpt | strip_html | truncatewords: 75 %}
+    {% assign meta_url = site.url | append: site.baseurl | append: page.url %}
+    {% assign meta_type = 'article' %}
+    {% else %}
+    {% assign meta_title = site.title %}
+    {% assign meta_author = site.author %}
+    {% assign meta_description = site.description | strip_html %}
+    {% assign meta_url = site.url %}
+    {% assign meta_image = site.image %}
+    {% assign meta_type = 'website' %}
+    {% endif %}
+    <meta name="title" content="{{ meta_title }}">
+    <meta name="description" content="{{ meta_description }}">
     <meta name="keywords" content="자바카페 블로그, 자바카페 기술 블로그, 자바카페, JavaCafe, javacafe, java cafe, java, JavaCafe Tech Blog, 자바카페 세미나, 자바카페 스터디, Java Cafe, java cafe, 개발자 커뮤니티, Developer Community">
-    <meta name="author" content="자바카페">
-    <meta property="og:title" content="자바카페 블로그">
-    <meta property="og:image" content="http://tech.javacafe.io/img/javacafe/logo-kor-black.png">
+    <meta name="author" content="{{ meta_author }}">
+    <meta property="og:site_name" content="{{ site.title }}"/>
+    <meta property="og:type" content="{{ meta_type }}"/>
+    <meta property="og:title" content="{{ meta_title }}">
+    <meta property="og:description" content="{{ meta_description }}">
+    <meta property="og:image" content="{{ meta_image }}">
+    <meta property="og:url" content="{{ meta_url }}"/>
+
 
     <!-- 네이버 웹마스터-->
     <meta name="naver-site-verification" content="7e13a6dbed07cd4129f3e3698b2ff7e038cf3c20"/>
 
-    <title>{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <title>{{ meta_title }}</title>
 
     <link rel="shortcut icon" href="http://tech.javacafe.io/logo.ico" type="image/x-icon" />
     <link rel="icon" href="http://tech.javacafe.io/logo.ico" type="image/x-icon" />
