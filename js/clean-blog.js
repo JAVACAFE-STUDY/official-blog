@@ -9,6 +9,12 @@ $(function() {
     $("[data-toggle='tooltip']").tooltip();
 });
 
+// Console Message
+(function() {
+    console.log.call(console,"%cJAVA CAFE","font:8em Arial;background: -webkit-linear-gradient(top, #36D1DC, #5B86E5);-webkit-background-clip: text;-webkit-text-fill-color: transparent;font-weight:bold");
+    console.log.call(console,"%cJavacafe Tech Blog","font:2em sans-serif;color:#333;");
+})();
+
 // Contact Form Scripts
 
 $(function() {
