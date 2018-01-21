@@ -173,7 +173,7 @@ function testTimeReport(costTimes) {
 }
 
 console.log(testTimeReport(loopLoopTestTime));
-// {average: 220.826171875, min: 171, max: 289, originalData: Array(10)}
+// {average: 176.892578125, min: 167, max: 204, originalData: Array(10)}
 ```
 
 ## TODO
