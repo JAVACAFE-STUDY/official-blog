@@ -30,7 +30,7 @@ assert(true, "소요된 시간: " + elapsed);
 코드는 매우 심플합니다.<br>
 먼저 코드의 시작부분에 현재시간(1970년 1월 1일 이후에 경과한 millisecond)을 start에 저장합니다.<br> 
 그리고 코드 실행이 끝난 후에 현재시간을 elapsed에 저장하고, elapsed - start하여 소요시간을 구합니다.<br>
-그런데 문제는 해당 코드는 for문 안에 연산을 직접 입력해야 되는, 다시 말해 확장성이 전혀 없는 코드라 재사용이 불가능합니다.
+그런데 문제는 해당 코드는 for문 안에 연산을 직접 입력해야 되는, 다시 말해 확장성이 전혀 없는 코드라 재사용이 불가능한 점입니다.
 
 ## 리팩토링 : 재사용 가능한 함수로 만들기
 
@@ -135,7 +135,8 @@ console.log('덧셈함수를 ' + loopCount + '번 실행을 ' + loopLoopCount + 
 만들다 보니 한 가지 의문이 들었습니다.<br>
 이 함수 만드느라 애는 썼는데 이걸 사용하는 사람한테 너무 어렵지 않을까?<br>
 내일의 나는 쓸 수 있을 것 같은데 일주일 후의, 한 달 후의 나는 저 함수를 다시 쓸 수 있을까?<br>
-지금은 저 함수의 코드와 과정이 다 눈에 보이지만 저걸 볼 수 없는 사람은 저 함수를 어떻게 쓸 수 있을까?<br>
+지금은 저 함수의 코드와 과정이 다 눈에 보이지만 저걸 볼 수 없는 사람(마지막 실행부만 볼 수 있는 사람)은 저 함수를 어떻게 쓸 수 있을까?<br>
+<br>
 그렇습니다 저 함수는 규약이 너무나 많습니다.<br>
 getLoopTestTime을 쓰기 위해서는 setTimerFunc로 만든 lazyExec(timer, [lazyExec(func, params), loopCount]) 형태가 와야되는...
 당장 내일의 저도 사용하기 어려운 함수가 되어버린거죠<br>
@@ -154,7 +155,7 @@ console.log('덧셈함수를 ' + loopCount + '번 실행을 ' + loopLoopCount + 
 ```
 
 getLoopLoopTestTime((a,b)=>a+b, [1,2], 10000000, 10)에서 보듯이 이제는 (테스트 할 함수, 함수에 넘길 파라미터, 함수반복횟수, 함수반복횟수만큼 다시 반복횟수)와 같은 형태로 호출이 가능해졌습니다.<br>
-이제 사용자는 복잡한 규약을 몰라도 사용할 수 있는 범용 함수가 되었습니다 :)<br>
+이제 사용자는 복잡한 규약을 몰라도 사용할 수 있는 범용 함수가 되었습니다. 끝~! :)<br>
 
 
 ## 부록 : 분석함수
@@ -165,7 +166,7 @@ function testTimeReport(costTimes) {
     var copied = costTimes.slice();
     return {
         'average': copied.reduce((a,b)=>(a+b)/2),
-        'min': copied.sort()[0],
+        'min': copied.sort((a,b)=>a>b)[0],
         'max': copied[copied.length-1],
         'originalData': costTimes
     }
@@ -185,6 +186,7 @@ console.log(testTimeReport(loopLoopTestTime));
 /*
     validate(func, [[valid1func, msg1], [valid2func, msg2], ...])
  */
+
 
 # 참고자료
 - 자바스크립트 Ninja - 인사이트 - 존 레식, 베어 바이볼트
