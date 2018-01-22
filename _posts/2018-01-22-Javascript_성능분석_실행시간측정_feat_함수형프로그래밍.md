@@ -163,7 +163,7 @@ getLoopLoopTestTime((a,b)=>a+b, [1,2], 10000000, 10)에서 보듯이 이제는 (
 값이 많아질 경우에 평균, 최소, 최대값 정도는 보고 싶어졌습니다
 ```javascript
 function testTimeReport(costTimes) {
-    var copied = costTimes.slice();
+    var copied = costTimes.slice();     // 값만 복사해서 원본의 훼손을 막습니다
     return {
         'average': copied.reduce((a,b)=>(a+b)/2),
         'min': copied.sort((a,b)=>a>b)[0],
