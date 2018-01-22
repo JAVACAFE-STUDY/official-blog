@@ -178,7 +178,6 @@ console.log(testTimeReport(loopLoopTestTime));
 ## TODO
 
 아래 목록은 만들면서 느낀 추후 과제들입니다.<br>
-- getLoopLoopTestTime처럼 getLoopTestTime도 사용하기 편하게 리팩토링 해보기<br>
 - 위의 코드는 함수간의 의존관계가 강하다. 그런 의존관계를 검증할 수 있는 validation을 만들거나 의존관계를 강제할 수 있는 클래스, 생성자함수, 더블바인딩기법 등을 통해 타입을 강제할 수 있는 방법을 찾아보기<br>
 - 위의 과정에 기존의 코드를 고치지 않고 선행조건, 후행조건을 사용해서 검증해보기<br>
 - 범용적으로 쓸 수 있는 타입체크 함수 만들어보기<br>
