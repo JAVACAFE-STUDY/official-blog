@@ -176,6 +176,22 @@ console.log(testTimeReport(loopLoopTestTime));
 // {average: 176.892578125, min: 167, max: 204, originalData: Array(10)}
 ```
 
+실제 테스트를 진행하다보니 처음에 만들었던 timer를 가장 많이 쓰게 되네요<br>
+아무래도 사용할때마다 lazyExec를 사용하기는 번거로워서, 성능측정할 함수 실행에 필요한 파라미터를 timer에서 받을 수 있도록 변경했습니다 
+```javascript
+function timer(func, maxCount, params) {
+    var start = new Date().getTime();
+    maxCount = maxCount? maxCount: 1;
+    for (var n = 0; n < maxCount; n++) {
+        /* 측정할 연산을 수행한다. -> 함수로 바꿉니다 */
+        func.apply(null, params);
+    }
+    var elapsed = new Date().getTime() - start;
+    return elapsed;
+}
+
+```
+
 ## TODO
 
 아래 목록은 만들면서 느낀 추후 과제들입니다.<br>
