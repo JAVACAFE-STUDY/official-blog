@@ -13,7 +13,7 @@ Amazon Elasticsearch에서 snapshot을 생성하기 위해서는 먼저 Elastics
 ![](http://tech.javacafe.io/img/blog/20180203/es_snapshot_1.png)
 
 그리고나서 정책(Policy) 생성 버튼을 클릭하고 아래 JSON 문자열을 직접 입력한다. 여기서는 버켓 이름을 hive-es-index-backups로 생성했다.
-```json
+```
 {
     "Version":"2012-10-17",
     "Statement":[
@@ -43,7 +43,7 @@ Amazon Elasticsearch에서 snapshot을 생성하기 위해서는 먼저 Elastics
 ```
 
 생성이 완료되면 역할 목록에서 방금 생성한 역할을 선택한 후 신뢰 관계 편집을 선택하여 ec2로 설정되어 있는 부분을 아래와 같이 es로 변경한다.
-```json
+```
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -110,7 +110,7 @@ GET _snapshot?pretty
 ```
 
 이제 실제로 스냅샷을 생성해야하는데 여기서는 1월 1일에 생성된 인덱스인 hive_live_2018_01_01 인덱스를 색인하도록 한다. 완료될 때까지 기다리려고 wait_for_completion 설정을 true로 지정하였는데 이것도 내부적으로 timeout 시간이 있는지 기다리가다 Fail 오류가 발생한다.
-```json
+```
 PUT _snapshot/hive-es-backup/hive_live_2018_01_01?wait_for_completion=true
 {
   "indices": "hive_live_2018_01_01",
@@ -125,7 +125,7 @@ GET _snapshot/hive-es-backup/_all?pretty
 ```
 
 하지만 snapshot 상태 정보를 확인(GET /_snapshot/hive-es-backup/hive_live_2018_01_01)해보면 IN_PROGRESS 상태인 걸보니 내부적으로는 진행 중인 듯 하다.
-```json
+```
 {
   "snapshots": [
     {
@@ -154,7 +154,7 @@ GET _snapshot/hive-es-backup/_all?pretty
 ```
 
 잠시 기다린 후 다시 상태 정보를 확인해보면 아래와 같이 SUCCESS 상태로 전환된 것을 확인할 수 있다.
-```json
+```
 {
   "snapshots": [
     {
@@ -202,7 +202,7 @@ $ ./elasticsearch-keystore add s3.client.default.secret_key
 ```
 
 이제 로컬 키바나를 통해(curl 명령을 사용해도 되지만 편의상 키바나를 사용했다.) elasticsearch로 동일한 repository(S3 버켓)를 생성하도록 한다.
-```json
+```
 PUT _snapshot/hive-es-backup
 {
   "type": "s3",
@@ -214,7 +214,7 @@ PUT _snapshot/hive-es-backup
 ```
 
 이제 S3에 저장된 스냅샷을 아래 명령을 통해 복원해보도록 하자.
-```json
+```
 POST /_snapshot/hive-es-backup/hive_live_2018_01_01/_restore
 {
   "indices": "hive_live_2018_01_01"
@@ -227,7 +227,7 @@ GET /_cat/indices?v&s=index
 ```
 
 restore 시에는 인덱스 설정이 레플리카 수는 1개, flush 주기는 1초 등 기본 값으로 설정이 되어있다. 이를 아래와 같이 변경하여 색인 성능을 높일 수도 있다.
-```json
+```
 POST /_snapshot/hive-es-backup/hive_live_2018_01_01/_restore
 {
   "indices": "hive_live_2018_01_01",
