@@ -12,7 +12,7 @@ Amazon Elasticsearch에서 snapshot을 생성하기 위해서는 먼저 Elastics
 
 ![](http://tech.javacafe.io/img/blog/20180203/es_snapshot_1.png)
 
-그리고나서 정책(Policy) 생성 버튼을 클릭하고 아래 JSON 문자열을 직접 입력한다. 여기서는 버켓 이름을 hive-es-index-backups로 생성했다.
+그리고나서 정책(Policy) 생성 버튼을 클릭하고 아래 JSON 문자열을 직접 입력한다. 여기서는 버켓 이름을 javacafe-es-index-backups로 생성했다.
 ```
 {
     "Version":"2012-10-17",
@@ -23,7 +23,7 @@ Amazon Elasticsearch에서 snapshot을 생성하기 위해서는 먼저 Elastics
             ],
             "Effect":"Allow",
             "Resource":[
-                "arn:aws:s3:::hive-es-index-backups"
+                "arn:aws:s3:::javacafe-es-index-backups"
             ]
         },
         {
@@ -35,7 +35,7 @@ Amazon Elasticsearch에서 snapshot을 생성하기 위해서는 먼저 Elastics
             ],
             "Effect":"Allow",
             "Resource":[
-                "arn:aws:s3:::hive-es-index-backups/*"
+                "arn:aws:s3:::javacafe-es-index-backups/*"
             ]
         }
     ]
@@ -82,8 +82,8 @@ if __name__ == "__main__":
 
     print('Registering Snapshot Repository')
     resp = client.make_request(method='POST',
-                               path='/_snapshot/hive-es-backup',
-                               data='{"type": "s3","settings": { "bucket": "hive-es-index-backups","region": "ap-northeast-2","role_arn": "arn:aws:iam::<ACCOUNTID>:role/ESSnapshotRole"}}')
+                               path='/_snapshot/javacafe-es-backup',
+                               data='{"type": "s3","settings": { "bucket": "javacafe-es-index-backups","region": "ap-northeast-2","role_arn": "arn:aws:iam::<ACCOUNTID>:role/ESSnapshotRole"}}')
     body = resp.read()
     print(body)
 ```
@@ -98,10 +98,10 @@ GET _snapshot?pretty
   "cs-automated": {
     "type": "s3"
   },
-  "hive-es-backup": {
+  "javacafe-es-backup": {
     "type": "s3",
     "settings": {
-      "bucket": "hive-es-index-backups",
+      "bucket": "javacafe-es-index-backups",
       "region": "ap-northeast-2",
       "role_arn": "arn:aws:iam::<ACCOUNTID>:role/<ROLE_NAME>"
     }
@@ -109,11 +109,11 @@ GET _snapshot?pretty
 }
 ```
 
-이제 실제로 스냅샷을 생성해야하는데 여기서는 1월 1일에 생성된 인덱스인 hive_live_2018_01_01 인덱스를 색인하도록 한다. 완료될 때까지 기다리려고 wait_for_completion 설정을 true로 지정하였는데 이것도 내부적으로 timeout 시간이 있는지 기다리가다 Fail 오류가 발생한다.
+이제 실제로 스냅샷을 생성해야하는데 여기서는 1월 1일에 생성된 인덱스인 javacafe_2018_01_01 인덱스를 색인하도록 한다. 완료될 때까지 기다리려고 wait_for_completion 설정을 true로 지정하였는데 이것도 내부적으로 timeout 시간이 있는지 기다리가다 Fail 오류가 발생한다.
 ```
-PUT _snapshot/hive-es-backup/hive_live_2018_01_01?wait_for_completion=true
+PUT _snapshot/javacafe-es-backup/javacafe_2018_01_01?wait_for_completion=true
 {
-  "indices": "hive_live_2018_01_01",
+  "indices": "javacafe_2018_01_01",
   "ignore_unavailable": true,
   "include_global_state": false
 }
@@ -121,20 +121,20 @@ PUT _snapshot/hive-es-backup/hive_live_2018_01_01?wait_for_completion=true
 
 스냅샷이 정상적으로 되었는지 확인하려면 아래 명령을 수행한다. (특정 스냅샷만 보려는 경우 _all 부분을 snapshot 명으로 입력한다.)
 ```
-GET _snapshot/hive-es-backup/_all?pretty
+GET _snapshot/javacafe-es-backup/_all?pretty
 ```
 
-하지만 snapshot 상태 정보를 확인(GET /_snapshot/hive-es-backup/hive_live_2018_01_01)해보면 IN_PROGRESS 상태인 걸보니 내부적으로는 진행 중인 듯 하다.
+하지만 snapshot 상태 정보를 확인(GET /_snapshot/javacafe-es-backup/javacafe_2018_01_01)해보면 IN_PROGRESS 상태인 걸보니 내부적으로는 진행 중인 듯 하다.
 ```
 {
   "snapshots": [
     {
-      "snapshot": "hive_live_2018_01_01",
+      "snapshot": "javacafe_2018_01_01",
       "uuid": "_ecORIa8RteCruw54pDzCA",
       "version_id": 5050299,
       "version": "5.5.2",
       "indices": [
-        "hive_live_2018_01_01"
+        "javacafe_2018_01_01"
       ],
       "state": "IN_PROGRESS",
       "start_time": "2018-01-18T01:48:39.244Z",
@@ -158,12 +158,12 @@ GET _snapshot/hive-es-backup/_all?pretty
 {
   "snapshots": [
     {
-      "snapshot": "hive_live_2018_01_01",
+      "snapshot": "javacafe_2018_01_01",
       "uuid": "_ecORIa8RteCruw54pDzCA",
       "version_id": 5050299,
       "version": "5.5.2",
       "indices": [
-        "hive_live_2018_01_01"
+        "javacafe_2018_01_01"
       ],
       "state": "SUCCESS",
       "start_time": "2018-01-18T01:48:39.244Z",
@@ -203,11 +203,11 @@ $ ./elasticsearch-keystore add s3.client.default.secret_key
 
 이제 로컬 키바나를 통해(curl 명령을 사용해도 되지만 편의상 키바나를 사용했다.) elasticsearch로 동일한 repository(S3 버켓)를 생성하도록 한다.
 ```
-PUT _snapshot/hive-es-backup
+PUT _snapshot/javacafe-es-backup
 {
   "type": "s3",
   "settings": {
-    "bucket": "hive-es-index-backups",
+    "bucket": "javacafe-es-index-backups",
     "region": "ap-northeast-2"
   }
 }
@@ -215,9 +215,9 @@ PUT _snapshot/hive-es-backup
 
 이제 S3에 저장된 스냅샷을 아래 명령을 통해 복원해보도록 하자.
 ```
-POST /_snapshot/hive-es-backup/hive_live_2018_01_01/_restore
+POST /_snapshot/javacafe-es-backup/javacafe_2018_01_01/_restore
 {
-  "indices": "hive_live_2018_01_01"
+  "indices": "javacafe_2018_01_01"
 }
 ```
 
@@ -228,27 +228,27 @@ GET /_cat/indices?v&s=index
 
 restore 시에는 인덱스 설정이 레플리카 수는 1개, flush 주기는 1초 등 기본 값으로 설정이 되어있다. 이를 아래와 같이 변경하여 색인 성능을 높일 수도 있다.
 ```
-POST /_snapshot/hive-es-backup/hive_live_2018_01_01/_restore
+POST /_snapshot/javacafe-es-backup/javacafe_2018_01_01/_restore
 {
-  "indices": "hive_live_2018_01_01",
+  "indices": "javacafe_2018_01_01",
   "index_settings": {
     "index.number_of_replicas": 0,
     "index.refresh_interval": -1
   }
 }
 ```
-결과를 확인해보면 복원을 수행한 직후에는 아래와 같이 document 수 조차도 계산되지 않고 인덱스만 생성되어 있고, 정상적으로 색인이 되어있는 .kibana는 health 상태가 green인 것과 달리 방금 복원을 요청했던 hive_live_2018_01_01 인덱스의 health 상태가 yellow인 것을 확인할 수가 있다.
+결과를 확인해보면 복원을 수행한 직후에는 아래와 같이 document 수 조차도 계산되지 않고 인덱스만 생성되어 있고, 정상적으로 색인이 되어있는 .kibana는 health 상태가 green인 것과 달리 방금 복원을 요청했던 javacafe_2018_01_01 인덱스의 health 상태가 yellow인 것을 확인할 수가 있다.
 
 ```
 health status index                uuid                   pri rep docs.count docs.deleted store.size pri.store.size
-yellow open   hive_live_2018_01_17 B3tGrOPJRt2PaTp65g66-A   5   1
+yellow open   javacafe_2018_01_17 B3tGrOPJRt2PaTp65g66-A   5   1
 ```
 
 잠시 시간이 지난 후에는 document 수와 용량은 확인되지만 아직까지는 health 상태가 yellow이다.
 ```
 health status index                             uuid                   pri rep docs.count docs.deleted store.size pri.store.size
 green  open   .kibana                           SFYFvaq3RrmyjcJ1pipBYw   1   1          2            0    156.4kb         78.2kb
-yellow open   hive_live_2018_01_01              uLbBcPPrRoOxqWi-lgebag   5   1    4169704            0      6.7gb          6.7gb
+yellow open   javacafe_2018_01_01              uLbBcPPrRoOxqWi-lgebag   5   1    4169704            0      6.7gb          6.7gb
 ```
 
 green이 될 때까지 기다리면 복원이 완료된 것이다. 이 때 스냅샷을 생성한 엘라스틱서치의 document 개수와 복원한 엘라스틱서치의 document 개수를 꼭 확인해보도록 하자.
