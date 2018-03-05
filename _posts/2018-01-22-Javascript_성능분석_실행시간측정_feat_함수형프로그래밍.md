@@ -166,7 +166,7 @@ function testTimeReport(costTimes) {
     return {
         'average': copied.reduce((a,b)=>(a+b)/2),
         'min': copied.sort((a,b)=>a>b)[0],
-        'max': copied[copied.length-1],
+        'max': copied.sort((a,b)=>a>b)[copied.length-1],
         'originalData': costTimes
     }
 }
@@ -183,6 +183,7 @@ function timer(func, maxCount, params) {
     maxCount = maxCount? maxCount: 1;
     for (var n = 0; n < maxCount; n++) {
         /* 측정할 연산을 수행한다. -> 함수로 바꿉니다 */
+        /* 동적으로 파라미터를 받아서 처리할 수 있게 apply 메서들르 사용합니다 */
         func.apply(null, params);
     }
     var elapsed = new Date().getTime() - start;
