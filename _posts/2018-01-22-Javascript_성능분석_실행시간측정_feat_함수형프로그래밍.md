@@ -165,8 +165,8 @@ function testTimeReport(costTimes) {
     var copied = costTimes.slice();     // 값만 복사해서 원본의 훼손을 막습니다
     return {
         'average': copied.reduce((a,b)=>(a+b)/2),
-        'min': copied.sort((a,b)=>a>b)[0],
-        'max': copied.sort((a,b)=>a>b)[copied.length-1],
+        'min': copied.sort((a,b)=>a-b)[0],
+        'max': copied.sort((a,b)=>a-b)[copied.length-1],
         'originalData': costTimes
     }
 }
