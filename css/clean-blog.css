@@ -402,3 +402,32 @@ img::-moz-selection {
 body {
   webkit-tap-highlight-color: #0085a1;
 }
+
+.tags-expo .tags-expo-list .post-category {
+  margin: .2em .3em;
+}
+
+.post-category {
+  display: inline-block;
+  background: rgba(106,159,181,0.15);
+  padding: 0 .5rem;
+  margin-right: .5rem;
+  border-radius: 4px;
+  color: #6a9fb5;
+  font-size: 90%;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+
+.tags-expo-list a {
+  color: #0085a1;
+  text-decoration: none;
+  line-height: 1.5;
+}
+
+.post-category:before {
+  content: "\f02b";
+  font-family: FontAwesome;
+  padding-right: .5em;
+}
