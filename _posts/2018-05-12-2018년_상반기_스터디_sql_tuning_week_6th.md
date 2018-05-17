@@ -1,9 +1,6 @@
 ---
 title: '2018년 상반기 스터디 - sql tuning 6주'
 date: 2018-05-12 21:00:00
-categories:
-- 2018년 상반기 스터디
-- sql tuning
 tags:
 - sql
 - sql tuning
