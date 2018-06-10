@@ -15,7 +15,7 @@ author : 정재욱
 자료의 내용은 추후에 여기 아래로 추가하도록 하겠습니다^^
 
 # 발표자료
-<iframe src="https://www.slideshare.net/JaeukJung2/20180609-sql-presentation" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+<iframe src="//www.slideshare.net/JaeukJung2/20180609-sql-presentation" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
 <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/JaeukJung2/20180609-sql-presentation" title="나라면 데이터를 어떻게 처리할까?" target="_blank">나라면 데이터를 어떻게 처리할까?</a> </strong> </div>
 
 * 자바카페 페이스북 : https://www.facebook.com/groups/javacafe/
