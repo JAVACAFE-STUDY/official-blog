@@ -71,7 +71,7 @@ IntelliJ, JDK 8, MySQL and Maven. 하지만 JDK 1.7 에서도 잘 동작한다. 
 
 우선, 최종 프로젝트 구조를 미리 보겠다. 이를 통하여 개발자가 만들어야 될 패키지 구조와 파일들을 만드는데 혼란을 줄일 수 있다.
 
-![그림01](../img/blog/20181103/spring-configuraion-02.png)
+![그림01](http://tech.javacafe.io/img/blog/20181103/spring-configuraion-02.png)
 
 
 
@@ -79,19 +79,19 @@ IntelliJ, JDK 8, MySQL and Maven. 하지만 JDK 1.7 에서도 잘 동작한다. 
 
 이번 단락은 IntelliJ 에서 자바기반의 Gradle 프로젝트를 생성하는 예제이다. In Eclipse IDE, go to `File -> New -> Maven Project`. 역주) 원문은 Maven이다.
 
-![그림02](../img/blog/20181103/spring-configuraion-01.png)
+![그림02](http://tech.javacafe.io/img/blog/20181103/spring-configuraion-01.png)
 
 
 
 GroupId, ArtifactId, Version 을 물어본다. 이미지와 같이 입력한다. 버전 번호는 기본값이 `1.0-SNAPSHOT` 이다. 
 
-![그림03](../img/blog/20181103/spring-configuraion-03.png)
+![그림03](http://tech.javacafe.io/img/blog/20181103/spring-configuraion-03.png)
 
 
 
 Project location에 적당한 경로를 지정 후 Finish 버튼을 누르면 프로젝트 생성이 끝난다.
 
-![그림04](../img/blog/20181103/spring-configuraion-04.png)
+![그림04](http://tech.javacafe.io/img/blog/20181103/spring-configuraion-04.png)
 
 
 
@@ -244,7 +244,7 @@ public class AppMain {
 
 어플리케이션을 실행하기 위하여`AppMain` 클래스를 선택 후 마우스 오른쪽 버튼을 클릭한다. `Run 'AppMain.main()'`. 
 
-![그림06](../img/blog/20181103/spring-configuraion-06.png)
+![그림06](http://tech.javacafe.io/img/blog/20181103/spring-configuraion-06.png)
 
 
 
