@@ -1,5 +1,5 @@
 ---
-ㅠtitle: '스프링 @Configuration 어노테이션 예제'
+title: '스프링 @Configuration 어노테이션 예제'
 date: 2018-11-03 18:00:00
 categories:
 - spring
@@ -12,7 +12,7 @@ thumbnail: https://www.w3.org/TR/css3-selectors/
 author : 이정근
 ---
 
-https://examples.javacodegeeks.com/enterprise-java/spring/spring-configuration-annotation-example/ 의 글을 번역해서 올림니다.
+[https://examples.javacodegeeks.com/enterprise-java/spring/spring-configuration-annotation-example/](https://examples.javacodegeeks.com/enterprise-java/spring/spring-configuration-annotation-example/ {:target="_blank"}) 의 글을 번역해서 올림니다.
 
 
 
@@ -63,7 +63,7 @@ public class ApplicationConfig {
 
 ### 2.1 사용되는 도구들
 
-IntelliJ, JDK 8, MySQL and Maven. 하지만 JDK 1.7 에서도 잘 동작한다. 역주) 원문에는 이클립스를 사용하였다. 만일 이클립스를 사용하고 있다면 원문을 참조바란다. 그림만 봐도 따라 할 수 있다.
+IntelliJ, JDK 8, MySQL and Maven. 하지만 JDK 1.7 에서도 잘 동작한다. 역주) 원문에는 이클립스를 사용하였다. 만일 이클립스를 사용하고 있다면 [원문](https://examples.javacodegeeks.com/enterprise-java/spring/spring-configuration-annotation-example/ {:target="_blank"})을 참조바란다. 그림만 봐도 따라 할 수 있다.
 
 
 
