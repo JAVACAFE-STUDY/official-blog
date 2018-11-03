@@ -63,7 +63,7 @@ public class ApplicationConfig {
 
 ### 2.1 사용되는 도구들
 
-IntelliJ, JDK 8, MySQL and Maven. 하지만 JDK 1.7 에서도 잘 동작한다. 역주) 원문에는 이클립스를 사용하였다. 만일 이클립스를 사용하고 있다면 [원문](https://examples.javacodegeeks.com/enterprise-java/spring/spring-configuration-annotation-example/ {:target="_blank"})을 참조바란다. 그림만 봐도 따라 할 수 있다.
+IntelliJ, JDK 8, MySQL and Maven. 하지만 JDK 1.7 에서도 잘 동작한다. 역주) 원문에는 이클립스를 사용하였다. 만일 이클립스를 사용하고 있다면 [원문](https://examples.javacodegeeks.com/enterprise-java/spring/spring-configuration-annotation-example/)을 참조바란다. 그림만 봐도 따라 할 수 있다.
 
 
 
