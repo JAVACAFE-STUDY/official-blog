@@ -12,7 +12,7 @@ thumbnail: https://www.w3.org/TR/css3-selectors/
 author : 이정근
 ---
 
-[https://examples.javacodegeeks.com/enterprise-java/spring/spring-configuration-annotation-example/](https://examples.javacodegeeks.com/enterprise-java/spring/spring-configuration-annotation-example/ {:target="_blank"}) 의 글을 번역해서 올림니다.
+[https://examples.javacodegeeks.com/enterprise-java/spring/spring-configuration-annotation-example/](https://examples.javacodegeeks.com/enterprise-java/spring/spring-configuration-annotation-example/) 의 글을 번역해서 올림니다.
 
 
 
