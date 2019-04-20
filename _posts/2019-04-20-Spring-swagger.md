@@ -2,7 +2,7 @@
 title : 간단히 스프링에 Swagger 적용해보기
 date : 2019-04-20 17:00:00
 
-author : 이정근(http://cjred.net)
+author : [이정근](http://cjred.net)
 ---
 
 간단히 스프링부트에 Swagger 적용해보기
